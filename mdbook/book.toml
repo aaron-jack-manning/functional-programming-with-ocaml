@@ -1,0 +1,16 @@
+[book]
+author = "Aaron Manning"
+language = "en"
+multilingual = false
+src = "src"
+title = "Functional Programming with OCaml"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "coal"
+no-section-label = true
+git-repository-url = "https://github.com/aaron-jack-manning/functional-programming-with-ocaml"
+git-repository-icon = "fa-code-fark"
+edit-url-template = "https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/{path}"
+cname = "ocamlbook.aaronmanning.net"
+input-404 = "not-found.md"

@@ -1,0 +1,1747 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Functional Programming with OCaml</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="a_mathematical_approach_to_programming/side_effects.html">Side Effects</a></li><li class="chapter-item expanded "><a href="a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="temperature_converter/temperature_converter.html">Temperature Converter</a></li><li class="chapter-item expanded "><a href="project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="linked_lists/map.html">Map</a></li><li class="chapter-item expanded "><a href="linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="stacks/stacks.html">Stacks</a></li><li class="chapter-item expanded "><a href="queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="monads/option_monad.html">Option Monad</a></li><li class="chapter-item expanded "><a href="monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="preface"><a class="header" href="#preface">Preface</a></h1>
+<p>Before we get to the main content of this book, it is important to note that it is currently incomplete, and a work in progress. Below is the planned structure of the book with the completed sections marked off.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Introduction
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Setup</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+A Mathematical Approach to Programming
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Side Effects</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Currying</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Functions are Data</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Function Composition</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Hello, World!</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Temperature Converter</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Project Euler 1
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+If Expressions</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Recursion</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Putting it all Together</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Grouping Data
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Records</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Tuples</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Linked Lists
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Variants and the List Type</li>
+<li><input disabled="" type="checkbox" checked=""/>
+General Functions</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Debugging</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Map</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Filter</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Fold</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Persistence of Functional Structures</li>
+<li><input disabled="" type="checkbox" checked=""/>
+The Built in List Type</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Pipelining</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Exercises</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Option Type</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Stacks</li>
+<li><input disabled="" type="checkbox"/>
+Queues</li>
+<li><input disabled="" type="checkbox"/>
+Pattern Matching</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Monads
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Option Monad</li>
+<li><input disabled="" type="checkbox"/>
+Result Monad</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Modules and Multi File Projects
+<ul>
+<li><input disabled="" type="checkbox"/>
+Functors</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Sets and Maps
+<ul>
+<li><input disabled="" type="checkbox"/>
+Red Black Trees</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Imperative Programming in OCaml
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+If Statements</li>
+<li><input disabled="" type="checkbox" checked=""/>
+References</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Loops</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Arrays</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Further Reading</li>
+</ul>
+<p>This book was created using the tool <a href="https://github.com/rust-lang/mdBook">mdbook</a>. Upon the completion and editing of this version of the text, another version will be created with LaTeX to be viewed as a <code>.pdf</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>OCaml, which stands for Object Categorical Abstract Machine Language, is a compiled, statically typed, functional programming language originally from 1996, and based on Caml, it's predecessor of about 10 years.</p>
+<h3 id="why-ocaml"><a class="header" href="#why-ocaml">Why OCaml?</a></h3>
+<p>OCaml is a programming language that fully supports and encourages a functional programming style, including currying, algebraic data types and pattern matching, immutability by default and first class functions, without enforcing those upon the programmer. What this means is that in OCaml, writing functional programs is the way to get the best code, but for data structures which fundamentally cannot be purely functional, using references and side effects can be done in a much simpler way than a language like Haskell. Eager evaluation and less aggressive optimization by the compiler make it way easier to understand the way the computer runs the code you write than Haskell as well.</p>
+<h3 id="design-principles-and-structure"><a class="header" href="#design-principles-and-structure">Design Principles and Structure</a></h3>
+<p>This book is an introduction to functional programming, using OCaml as the language through which to do that. That said, many of the skills taught in this book will apply to other functional programming languages, most notable Standard ML and F#, but also languages Erlang, Agda and Haskell for example.</p>
+<p>Chapter 2, entitled <em>A Mathematical Approach to Programming</em> will provide an introduction to the paradigm of functional programming, and how it differs from imperative or object oriented programming, and what advantages come from those disadvantages.</p>
+<p>After that point, as much as possible, the concepts of functional programming and OCaml will be taught through solving problems, working on projects or implementing common data structures and algorithms to manipulate them. Ultimately this will make this book a terrible reference if you're trying to look up a standalone explanation of any given concept. That cost comes with the benefit of teaching things in a order that is more natural and intuitive.</p>
+<h3 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h3>
+<p>This book is not designed to be a general introduction to programming, but rather an introduction to functional programming for people already familiar with imperative programming.</p>
+<p>This is partially a matter of convenience, but also a design decision. In general, I believe the best first programming language to learn is C. Readers coming from a background in C should find this book to be an introduction to how to program many things they are already familiar with but in a new style. As such data general programming concepts will be explained in terms of how OCaml does them, not how they work in the first place, and data structures like linked lists will be explained with reference to the imperative equivalent.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>The following sections are details on the recommended method to set up OCaml for the content and exercises within this textbook.</p>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<p>On most Linux distributions, installation of the OCaml compiler and related tools is fairly straightforward using the package manager bundled with your distribution. Here are the installation commands for different distributions:</p>
+<p>Ubuntu, Debian:</p>
+<pre><code>sudo apt install ocaml
+</code></pre>
+<p>Fedora:</p>
+<pre><code>dnf install ocaml
+</code></pre>
+<p>CentOS:</p>
+<pre><code>yum install ocaml
+</code></pre>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>Windows is where OCaml installation and setup is most difficult. While it is possible to install the OCaml compiler using Cygwin, it is recommended to use WSL for OCaml development due to Linux based systems having the best support when it comes to OCaml development.</p>
+<p>For instructions on installing and setting up WSL, see: https://docs.microsoft.com/en-us/windows/wsl/install.</p>
+<p>Once WSL is set up, installation can be done as above depending on your chosen Linux distribution.</p>
+<p>Information on installing OCaml without WSL can be found here: https://fdopen.github.io/opam-repository-mingw/.</p>
+<h3 id="macos"><a class="header" href="#macos">MacOS</a></h3>
+<p>On MacOS, there are a few options for installation of OCaml, depending on the installed tooling and package managers.</p>
+<p>Homebrew:</p>
+<pre><code>brew install ocaml
+</code></pre>
+<p>MacPorts:</p>
+<pre><code>port install ocaml
+</code></pre>
+<p>FreeBSD:</p>
+<pre><code>pkg install ocaml
+</code></pre>
+<h3 id="building-from-source"><a class="header" href="#building-from-source">Building from Source</a></h3>
+<p>It is also possible to build from source (not recommended) using releases from here: https://github.com/ocaml/ocaml/releases.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-mathematical-approach-to-programming"><a class="header" href="#a-mathematical-approach-to-programming">A Mathematical Approach to Programming</a></h1>
+<p>While this chapter will provide an introduction to some of the syntax in OCaml, it is not designed to be an explicit tutorial to programming in the language, that will come later. This chapter should provide a context around the new paradigm of functional programming and how it effects the way we write code.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="side-effects"><a class="header" href="#side-effects">Side Effects</a></h2>
+<p>When writing functions that are <em>pure</em>, we do not modify the inputs, or mutate data elsewhere. This is contrary to imperative and object oriented languages, where mutating state is crucial. So let's deconstruct each of the ideas of pure functions.</p>
+<h3 id="immutability"><a class="header" href="#immutability">Immutability</a></h3>
+<p>When declaring a variable in C, we would write the following:</p>
+<pre><code>int x;
+</code></pre>
+<p>This variable <code>x</code> is then declared, but not initialised. We could initialise in the same step, or do so later, but the point is that <code>x</code> is a <em>variable</em>. We can change its value whenever we want. In functional programming that is not the case.</p>
+<p>If we wish to declare a variable named <code>x</code>, we <em>are required to</em> initialize it at that step, and it is not really a variable, because it is immutable, meaning that it cannot be changed.</p>
+<pre><code>let x = 5
+</code></pre>
+<p>Now <code>x</code> will be equal to 5 for the entire length of our program.</p>
+<p>At first, it is natural to think this would make it difficult to have your program really do anything. This is no reason to fear functional programming. We will see very quickly why this isn't limiting in terms of our capabilities. So what are the benefits though? In general, it makes code easier to read and understand as when you look at a piece of code, you don't have to think through what the order of execution is and how it effects each variables value is at each point. This is also because we don't generally use loops, or complex branches in functional programming. Furthermore, we don't generally write if statements without their else case. An if statement is just a function.</p>
+<h3 id="side-effects-1"><a class="header" href="#side-effects-1">Side Effects</a></h3>
+<p>In an object oriented program it is common to create a class, of which many instances can be created, where they have data and methods associated with them. We can then have a method which is a <em>member of the instance</em> (non static) and modifies the internal data of that type.</p>
+<p>This means we can have a method which takes no inputs and returns no outputs. In a functional programming language the idea of this is nonsensical. This is because we try to write our functions to have no side effects. This means that they will take an input, do some calculators, and return an output, without doing anything else.</p>
+<p>Some examples of side effects are:</p>
+<ul>
+<li>Reading and writing to files</li>
+<li>Displaying text in the console</li>
+<li>Modifying data on the heap (follow by a pointer)</li>
+<li>Making a memory allocation</li>
+</ul>
+<p>Some readers may now be thinking <em>&quot;how on earth do you write a program to do something useful without side effects?</em> This is a very fair point. As we start out, because OCaml is a functional language but doesn't enforce its functional nature upon us, we will simply be very careful about where we use side effects. In languages like Haskell, we use things called monads to manage side effects. Designing programs around monads makes managing side effects very safe, and makes it easier to reason about the program as it becomes more complicated, with the up front cost of some extra thought in design. For now, there is no reason to worry about monads and the notion of managing side effects with them, as in OCaml we can do things like IO simply and easily. We will however cover them later on as a design pattern to improve our code. That said, mutating data is a side effect we will avoid at (almost) all cost.</p>
+<p>It is also crucial at this point to explicitly mention that the whole idea of functional programming is to provide abstractions upon effectful code. Obviously our code has to allocate memory to do something useful, but when writing a functional program, we can simply think about data being passed around between our functions, without significant thinking dedicated to how the program handles it internally. This abstraction does come with disadvantages when it comes to performance analysis, and the ability to do systems programming, we will discuss these further later on.</p>
+<p>All of this is about managing complexity. One of the biggest benefits of pure functions should be clear already. If I call a function, I know that its just doing calculations on the inputs and that's it. I don't have to worry about calling a function on data and not knowing if its going to modify that data I'm giving to it. This is especially important when using a library written by someone else, or returning to your own code you haven't looked at in a while, when you're less familiar with it.</p>
+<p>The key idea here is that <em>pure functions make it easy to reason about complex algorithms, without tracking the state of your program</em>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="currying"><a class="header" href="#currying">Currying</a></h2>
+<p>When using a function, we need to know what type the function has. Let's consider the following function written in C.</p>
+<pre><code>int square(int x)
+{
+    return x * x;
+}
+</code></pre>
+<p>Here we can identify the type by the top of the function declaration: <code>int square(int x)</code>. Here the type at the front is the type we return, and the type inside the parenthesis is the input type.</p>
+<p>In functional languages we generally write types in a more mathematical way. For the above function we would write:</p>
+<pre><code>square : int -&gt; int
+</code></pre>
+<p>This means that the function square takes in an <code>int</code>, and returns an <code>int</code>.</p>
+<p>When applying functions in many functional languages we also omit the brackets. Therefore:</p>
+<pre><code>square 5
+</code></pre>
+<p>is the equivalent of:</p>
+<pre><code>square(5);
+</code></pre>
+<p>Let's extend the above idea to functions with multiple inputs. In general, we don't technically have multiple inputs, but rather a function that returns a function to take the next input, or many pieces of data grouped as one.</p>
+<p>Considering the latter first, if we want to have an argument take in many inputs, what we are actually doing is taking in one argument which is a data structure that groups a few pieces of data together, called a tuple. This tuple can be destructed in the header of the function. For example a function that calculates the distance to the origin of a point may have a top line like this:</p>
+<pre><code>let distance (x : float, y : float) : float =
+</code></pre>
+<p>There is however another option, being currying. Currying is just the ideas that instead of a function taking multiple arguments, it takes the arguments one at a time, and then returns a function to take the next argument. The top line of a curried version of the above function would look like this.</p>
+<pre><code>let distance (x : float) (y : float) : float =
+</code></pre>
+<p>A call to this function would then look like this:</p>
+<pre><code>distance 5.0 2.0
+</code></pre>
+<p>You can think about the parenthesis as left associative here:</p>
+<pre><code>(distance 5.0) 2.0
+</code></pre>
+<p>So distance is a function that takes a <code>float</code>, and returns a function that takes a <code>float</code> and returns a <code>float</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="functions-are-data"><a class="header" href="#functions-are-data">Functions are Data</a></h2>
+<p>One of the most important ideas behind functional programming languages is that because variables are just data, and functions are just data, there's no reason we should treat them in a different or special way. This is counter to the way functions and methods are handled in imperative and object oriented programming languages.</p>
+<p>In C for example, if we want to pass around a function into another function, we can't do this directly. Instead, we use a function pointer. This is because functions have a special status, and are treated differently in the language.</p>
+<p>In functional programming languages this is not the case, we can pass functions into functions as much as we like.</p>
+<p>Furthermore, all functions are closures and capture the variables within their environment before being returned. This forces functional languages to use either garbage collection or reference counting rather than manual memory management.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
+<p>As with any programming language, it's typical to start with a simple &quot;Hello, World&quot; program to get up and started with the language and compiler. In this case, we will go through such a program and then quickly move into a slighly more in depth program, to get straight into the language and its features. Throughout this chapter, don't stress if you don't fully understand everything. All the relavent concepts will be covered in depth later on. For now though, just read through, and try and soak up as much as you can about how OCaml is different from other languages you may have used, and how the process of writing programs in OCaml may differ.</p>
+<h2 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h2>
+<p>Let's begin by creating a file which we will call <code>main.ml</code>, to write our code in. The <code>.ml</code> extension is used for OCaml source code files.</p>
+<p>Unlike many other programming languages, OCaml doesn't require a special function to be the entry point of the program, we just write code on the top level.</p>
+<p>Open up <code>main.ml</code> and copy and paste the following code:</p>
+<pre><code>print_string &quot;Hello, World!\n&quot;;
+</code></pre>
+<p>Now navigate to the directory with <code>main.ml</code> in your chosen terminal and run the following commands:</p>
+<pre><code>ocamlopt -o program main.ml
+./program
+</code></pre>
+<p>You should see &quot;Hello, World!&quot; displayed in your terminal window.</p>
+<p>OCaml has two compilers, <code>ocamlopt</code> and <code>ocamlc</code>. We will explore the differences between them, the different output files, compiler options and splitting up the compiling and linking stages when we get to work on more complex programs. For most of the code we're going to write early on though, we will just work in one file and you can compile and run using the above commands.</p>
+<p>Let's first though just understand the single line of code we have written.</p>
+<p><code>print_string</code> is a function in an OCaml module called <code>Stdlib</code>, which is automatically included in all files by the compiler. The type signature of <code>print_string</code> is as follows:</p>
+<pre><code>val print_string : string -&gt; unit
+</code></pre>
+<p>In OCaml, strings are specified with double quotes, and function application doesn't require any parenthesis, hence the syntax we used. Notice that the end of our line has a semi-colon. We'll actually talk about this a bit more later, as that semi-colon is less innocent that it would be in a language like C. Remember the type signature above? Well unit is a return value that is used in OCaml when there is no real data to return. You can kind of think about it like <code>void</code> in many other languages. The use of the semi-colon turns our <em>expression</em> of function application into a <em>statement</em>, which doesn't have any value.</p>
+<p>As specified above, OCaml has no special entry point function. That said, writing code on the top level in between function declarations can make code more difficult to read. Hence, it is typical to write a main function which will be the entry point of the program, and then to call main. Here is a refactored &quot;Hello, World!&quot; program.</p>
+<pre><code>let main () =
+    print_string &quot;Hello, World!\n&quot;
+
+
+let _ = main ()
+</code></pre>
+<p>When declaring variables or functions, we use the <code>let</code> keyword, followed by the name of the variable or function. Notice the use of <code>()</code> after the function name of <code>main</code>. When writing a function in OCaml, arguments are separated by spaces after the function name. <code>()</code> is the way we represent that unit type from before. Just as a boolean has two cases: <code>true</code> and <code>false</code>, unit has one case: <code>()</code>.</p>
+<p>What is the purpose of taking in an argument that provides no information then? Well because a consequence of code being written on the top level is that it is evaluated immediately. If we have a variable which has code in it that is effectful (prints to the console for example), then it is evaluated at the start of the program, because it already has all of its arguments. Here though, the <code>main</code> function only runs when the bottom line is reached.</p>
+<p>So what's up with that bottom line. Well, there are some interesting consequences of OCaml's syntax which can sometimes be a bit irritating. OCaml is very light on syntax, and you will not see anywhere near the same number of brackets as you may see in languages with C style syntax, but OCaml is not whitespace significant. This means the compiler has to use a few key pieces of information to figure out what is what, and what falls in which scope. In that final line, a <code>let</code> binding is used to call the <code>main</code> function and actually display the result, but that function returns unit, so we don't care about the result. The <code>_</code> represents discarding that result. This is actually a case of a feature called pattern matching which will be discussed later. For now, when you see <code>_</code>, it means discard the variable rather than binding it.</p>
+<p>One other interesting thing about OCaml is that there is no <code>return</code> statement. The final block of code in a function is whatever is returned. So in this case, <code>main</code> returns whatever <code>print_string</code> returns, which is <code>unit</code>.</p>
+<p>Going back to the semi-colon from before, if we changed our code to:</p>
+<pre><code>let main () =
+    print_string &quot;Hello, World!&quot;;
+
+let _ = main ()
+</code></pre>
+<p>We would get an error. This is because the semi-colon ends a <em>statement</em>, which has no return value, and our function must return something, hence its final line must be an <em>expression</em>.</p>
+<p>The actual compiler error looks like this:</p>
+<pre><code>File &quot;main.ml&quot;, line 6, characters 0-0:
+Error: Syntax error
+</code></pre>
+<p>and is remarkably unhelpful. OCaml's compiler errors are fantastic when it comes to types, but useless when it comes to syntax, and regularly misreports the location. We will discuss this further later on, along with techniques on how to deal with it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="temperature-converter"><a class="header" href="#temperature-converter">Temperature Converter</a></h2>
+<p>As a short program to introduce some more ideas in OCaml and functional programming in general, let's write a simple tool in the command line to convert temperatures from celcius to fahrenheit and vice versa.</p>
+<p>We're going to start with a pretty simple, and somewhat imperative program, and slowly analyse it for how to change it to make it better, and use more of a functional style.</p>
+<p>The first thing we are going to do is implement our conversion functions, which are the core part of the program.</p>
+<p>Here are some simple implementations:</p>
+<pre><code>let fahrenheit_to_celcius x =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit x =
+    (9.0 /. 5.0) *. x + 32.0
+</code></pre>
+<p>A function in ocaml is declared as follows:</p>
+<pre><code>let &lt;name&gt; &lt;arguments&gt; =
+    &lt;body&gt;
+</code></pre>
+<p>Notice how in our functions we didn't ever tell the OCaml compiler that <code>x</code> was a floating point number. This is because OCaml can infer the type for us, without sacrificing static and strong typing. If we want, we can put type annotations on to make it easier to read.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+</code></pre>
+<p>Now let's look at the bodies. As mentioned earlier, in OCaml the last line of a function is its return value. In this case, we only have one line per functions to the function returns whatever the single line expression evaluates to.</p>
+<p>Now there is one other key thing to mention which you may have noticed, being the use of <code>+.</code> instead of <code>+</code>, and similarly for all other operators. This is because of how OCaml handles types and polymorphism. Languages that allow <code>+</code> to work for multiple types either allow this because <code>+</code> has a special status in the language (in OCaml it's just a function like any other), the use of parametric polymorphism (which OCaml does not support) or the use of operator overloading (which OCaml also does not support). If those terms don't make sense to you, think about it this way: in OCaml functions either work for a specific single type, or any type at all. Since <code>+</code> doesn't make sense for all types, addition is implemented differently for each type. The same applies to all other numerical arithmetic operations.</p>
+<p>Now let's write some of the code to handle user input and output the result.</p>
+<p>Consider the following code:</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number = read_line () in
+    
+    if temperature_type = &quot;celcius&quot; then
+        print_float (celcius_to_fahrenheit number)
+    else if temperature_type = &quot;fahrenheit&quot; then
+        print_float (fahrenheit_to_celcius number)
+    else
+        failwith &quot;Invalid temperature type.&quot;
+    ;
+
+    print_string &quot;\n&quot;
+
+let _ = main ()
+</code></pre>
+<p>We're going to go over this line by line to explain what each thing is doing, and then compile and test if it works.</p>
+<p>The first line of the function uses the <code>print_string</code> function from the standard library and displays the string to prompt the user to input a temperature type. Note the semi-colon on the end since this function returns <code>unit</code> which we don't need to store in a variable, so this line is a statement.</p>
+<p>We then declare a variable called <code>temperature_type</code> which is the output of the <code>read_line</code> function from the standard library, which reads a line from the standard input channel. Note the structure of this expression:</p>
+<pre><code>let ... = ... in
+</code></pre>
+<p>The <code>in</code> keyword ends a variable declaration, and specifies the scope in which the variable will exist. In most practical purposes, the keyword <code>in</code> can be thought of as just a line terminator for this type of expression, but you can read such an expression as declaring the variable in the rest of the current scope. We don't need the <code>in</code> keyword when declaring on the top level, but do within a function. Also take note of the fact that the variable is bound when it is created. In OCaml, variables are <em>immutable</em> and cannot be changed after declaration. This means we cannot declare a variable without giving its value, and the language has no notion of null or uninitialised variables.</p>
+<p>We then do the same thing to get the input of the number we're going to convert.</p>
+<p>Then we have an if statement to handle the different cases for which conversion we are doing, with an else case which throws an exception using the function <code>failwith</code>. Again, the trailing semi-colon there is because this if statement does return a value, but we are not using it.</p>
+<p>We then send a new line to the console since <code>print_float</code> does not.</p>
+<p>Let's run our code and see what happens:</p>
+<pre><code>File &quot;main.ml&quot;, line 18, characters 43-49:
+18 |         print_float (celcius_to_fahrenheit number)
+                                                ^^^^^^
+Error: This expression has type string but an expression was expected of type
+         float
+</code></pre>
+<p>It seems like there is an error. This is a type incompatibility error, telling us that <code>number</code> is a string, but the <code>celcius_to_fahrenheit</code> function expects a float. This is because <code>read_line</code> returns a string. We need to convert this first before we use it, so let's do that.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+
+    if temperature_type = &quot;celcius&quot; then
+        print_float (celcius_to_fahrenheit number)
+    else if temperature_type = &quot;fahrenheit&quot; then
+        print_float (fahrenheit_to_celcius number)
+    else
+        failwith &quot;Invalid temperature type.&quot;
+    ;
+
+    print_string &quot;\n&quot;
+
+let _ = main ()
+</code></pre>
+<p>If we compile and run our program now, it should work as expected.</p>
+<h3 id="refactoring"><a class="header" href="#refactoring">Refactoring</a></h3>
+<p>There are many improvements we could make to our program, so let's make those.</p>
+<p>The first thing to change is to neaten up our if statement a bit. In OCaml, an if statement is reall just a function, which returns whatever each branch returns depending on the case. So let's return the converted float from our if statement, and assign it to a variable. That way we can display that variable after the fact. We're also going to use the module <code>Printf</code> in the standard library which has a function called <code>printf</code> for easily displaying our output.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+    
+
+    let converted_result =
+        if temperature_type = &quot;celcius&quot; then
+            celcius_to_fahrenheit number
+        else if temperature_type = &quot;fahrenheit&quot; then
+            fahrenheit_to_celcius number
+        else
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p><code>printf</code> takes in a format string, which describes what we're going to output. In this case the <code>%f</code> is a for a float, and we then supply that argument after. This is also the first time we have used a function with more than one argument, and as you may expect, we can just put the next argument after the first with a space in between.</p>
+<p>Notice how this code still satisfies type checking, even though <code>failwith</code> is not a float. This is because it is special in that it has polymorphic output, and will satisfy typechecking because the output will be whatever it needs to be given the context.</p>
+<p>So how else can we improve our program? Well there are two noteworthy issues, being that if the input is not a float, <code>float_of_string</code> will throw an exception, and the fact that an exception is thrown if the temperature unit is invalid. While OCaml supports exceptions, they are generally considered bad practice in functional languages for similar reasons as any effectful code. Luckily OCaml provides a way to handle this called the <code>option</code> type. Option type is a type with two cases, and we can use a pattern matching expression to check it. To introduce the idea of pattern matching, we will first refactor our if statement:</p>
+<pre><code>let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+    
+    let converted_result =
+        match temperature_type with
+        | &quot;celcius&quot; -&gt;
+            celcius_to_fahrenheit number
+        | &quot;fahrenheit&quot; -&gt;
+            fahrenheit_to_celcius number
+        | _ -&gt;
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p>This <code>match</code> expression checks the variable used in the match against each of the cases. The wildcard character (<code>_</code>) at the end matches against anything, so it acts as a catch all if the previous cases didn't match. This will look familiar to the <code>_</code> used in the final line to call the <code>main</code> function, because it is basically the same thing, being a pattern matching which only hase one case, the catch all.</p>
+<p>Now let's change the <code>float_of_string</code> function to a function called <code>float_of_string_opt</code> and use a pattern match to deconstruct it. This will look like this:</p>
+<pre><code>let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =
+        match float_of_string_opt number_string with
+        | Some data -&gt; data
+        | None -&gt;
+            print_string &quot;Invalid numerical input, defaulted to 0.&quot;;
+            0.0
+    in
+    
+    let converted_result =
+        match temperature_type with
+        | &quot;celcius&quot; -&gt;
+            celcius_to_fahrenheit number
+        | &quot;fahrenheit&quot; -&gt;
+            fahrenheit_to_celcius number
+        | _ -&gt;
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p><code>option</code> type has two cases, one with data associated and one without. <code>data</code> in the first case is a variable bound to the data stored within that case of the option type. We can then handle this error however we choose. Here a default value is chosen, which probably isn't the most sensible, but we'll cover more sophisticated error handling at a later point.</p>
+<p>Also notice that this default value is written as <code>0.0</code> rather than <code>0</code>. This is no accident. OCaml's type system is quite strict, and <code>0</code> is of type <code>int</code>, not <code>float</code>. This means using <code>0</code> is a type error.</p>
+<p>One thing you also may have noticed is that we have chosen to write the <code>main</code> function underneath the conversion functions. This is not just a stylistic choice. In OCaml, dependencies go down the file, meaning that we cannot call a function called further down. This idea even extends across files, where file order is important. Because of this, OCaml has specific syntax for mutual recursion. This design decision is annoying to many first time OCaml programmers, as it forces you to think about code in a different way. However, it does provide some benefits, forcing you to write clearer code without complex dependencies across files.</p>
+<p>This tour into OCaml hopefully gives you somewhat of an idea of what OCaml's syntax is like, and what to expect. We will now take a deep dive into specific concepts of functional programming in OCaml.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="project-euler-1"><a class="header" href="#project-euler-1">Project Euler 1</a></h1>
+<p>In line with the project based aim of this textbook, we're going to learn some more of the basic concepts of programming in OCaml by completing a simple problem, Problem 1 of the <a href="https://projecteuler.net/">Project Euler</a> problem set.</p>
+<pre><code>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.
+</code></pre>
+<p>To solve this problem we are going to need a few new programming concepts, but let's first outline the approach.</p>
+<p>If programming in an imperative language, we would typically do this by declaring two variables to manipulate throughout a loop, one to be our index which we will increment by one in each case, and another to count the sum of all of the multiples. Then in each run of our loop we just need to check if the index is divisible by 3 or 5 and if so, add it to the accumulator. A solution in C would look something like this:</p>
+<pre><code>int total = 0;
+
+for (int i = 0; i &lt; 1000; i++)
+{
+    if (i % 3 || i % 5)
+    {
+        total += i;
+    }
+}
+
+printf(&quot;%d\n&quot;, total);
+</code></pre>
+<p>This is where we come across a few problems with a similar implementation. While it is totally possible to translate the above code into OCaml in a similar way, using techniques we will learn in a later chapter, we want to solve this program in a functional way, not an imperative way. This is because the differences in style with a functional approach will allow us to reason about far more complex problems more easily later on. The most notable problems with trying to translate the code directly are the fact that the total is updated and changed, but we said variables were immutable in OCaml, and the use of a loop, which we haven't learned yet and won't talk about for quite some time. So let's go through the new concepts we will need.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="if-expressions"><a class="header" href="#if-expressions">If Expressions</a></h2>
+<p>To solve our problem we're also going to need to have branching paths for our code. To do this we are going to use an <em>if expression</em>. This is distinct from an <em>if statement</em> in a key way. Let's consider some simple code to construct a branching path on if a value is less than 0, 0, or greater than 0.</p>
+<pre><code>if number &gt; 0 then
+    (* do something *)
+else if number &lt; 0 then
+    (* do something *)
+else
+    (* do something *)
+</code></pre>
+<p>This should look familiar to other programming languages, but there is something importantly different. In OCaml an if expression is a function, and thus returns a value which we can assign to another variable. Imagine each of the blocks of code within a series of cases like this as like a function, which has to return something at the end. These three cases then construct an overall function which returns the value from whichever case is run. So let's rewrite the above but fill out the cases by returning a string describing the number, and storing that as a variable.</p>
+<pre><code>let description =
+    if number &gt; 0 then
+        &quot;greater than 0&quot;
+    else if number &lt; 0 then
+        &quot;less than 0&quot;
+    else
+        &quot;equal to 0&quot;
+</code></pre>
+<p>There are a few implications of this fact about if statements. One of which is that because the overall expression makes up a function, all branches must return a value of the same type (string in this case). The following code is not valid:</p>
+<pre><code>let result = 
+    if condition then
+        0
+    else
+        &quot;0&quot;
+</code></pre>
+<p>It also means we have to have an else case, for example the following code is also not valid:</p>
+<pre><code>let result =
+    if condition then
+        0
+</code></pre>
+<p>Because what happens if the condition is not true? Well then we have no value to assign to result, and we have already established that in OCaml we don't have nulls, nor do we really want them.</p>
+<p>What if however you want to do some IO or something in some circumstances, but not return anything meaningful? We will cover how to do that at the end of this chapter, for now just remember if statements are functions, and each branch returns the same type.</p>
+<p>What if you know that all cases are covered by if else? The compiler will still force an else case, and while it is easy to just change the last case into an else case if you are confident that you have exhaustive conditions, we will see in a later section a way that the compiler can check for exhaustion of cases under many circumstances.</p>
+<h3 id="logical-operators-and-booleans"><a class="header" href="#logical-operators-and-booleans">Logical Operators and Booleans</a></h3>
+<p>The header of an if statement takes in a boolean type, which, as you'd expect, is either <code>true</code> or <code>false</code>.</p>
+<p>There are some logical operators for working with booleans.</p>
+<ul>
+<li>Logical And (<code>&amp;&amp;</code>)</li>
+<li>Logical Or (<code>||</code>)</li>
+</ul>
+<p>And a logical function:</p>
+<ul>
+<li>Logical Negation (<code>not</code>)</li>
+</ul>
+<p>We will see some of these in action as we solve our initial problem.</p>
+<h3 id="polymorphic-comparison"><a class="header" href="#polymorphic-comparison">Polymorphic Comparison</a></h3>
+<p>OCaml also has polymorphic comparison operators. We will cover the strangeness of these operators in detail later on when talking about polymorphism more generally, but for now just know that we have the following functions available and they work for <em>any type</em>, including custom types.</p>
+<ul>
+<li>Equal (<code>=</code>)</li>
+<li>Not equal (<code>&lt;&gt;</code>)</li>
+<li>Less than (<code>&lt;</code>)</li>
+<li>Greater than (<code>&gt;</code>)</li>
+<li>Less than or equal (<code>&lt;=</code>)</li>
+<li>Greater than or equal (<code>&gt;=</code>)</li>
+</ul>
+<p>Note that equality in OCaml here checks <em>structural equality</em>. We can give the OCaml compiler an instance of a complex type and it will check that every aspect of it is equal. This is unlike many languages which for data on the heap, just check that the pointers are the same, and this difference makes OCaml's equality check incredibly handy, but comes with some disadvantages when it comes to the other checks.</p>
+<p>This is because the other operators work for every type as well, even if it doesn't give a sensible answer. For example the following lines of code all give an answer that is <code>true</code> or <code>false</code>.</p>
+<pre><code>true &lt; false
+&quot;hello&quot; &gt;= &quot;goodbye&quot;
+[1; 3; 5] &gt; [0; 3] (* lists, to be discussed in more detail later *)
+</code></pre>
+<p>Moreover what answer is given is not obvious, and can't really be known without looking at the specific implementation of these operators.</p>
+<p>Hence, in general, while equal and not equal can be used for any type, the other comparison operators should be used for numerical types only.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="recursion"><a class="header" href="#recursion">Recursion</a></h2>
+<p>Writing a recursive approach to the problem, solves our problem of the lack of loops, and will inadvertantly remove the need for a mutable index and accumulator.</p>
+<h3 id="shadowing"><a class="header" href="#shadowing">Shadowing</a></h3>
+<p>Before talking about recursion though, we need to discuss shadowing. Shadowing in OCaml is just the fact that a variable of the same name can be declared twice, with the new definition shadowing, or overwriting the previous definition. For example, the following is perfectly valid OCaml code.</p>
+<pre><code>let number = 5
+
+let number = 8
+</code></pre>
+<p>In fact, we can even use the previous definition of number in the new definition like this:</p>
+<pre><code>let number = 5
+
+let number = number + 3
+</code></pre>
+<p>This may look suspiciously like mutability, but it's not. Why? Because if the definition is changed within a higher scope, then it will only change it within that scope. For example, after the following code has run, the value of number is still 5. The change in value of number only occurs in the higher scope of the <code>add_seven</code> function.</p>
+<pre><code>let number = 5
+
+let add_seven x =
+    let number = 7 in
+    x + number
+</code></pre>
+<p>This means we can't change the definition within a loop and have it be changed in the next instance of the loop running.</p>
+<p>In general, code like those in the above blocks becomes a bit subtle and obvuscated because of the shadowing, and hence shadowing is generally not advised. If no variables are shadowed, it becomes way easier to track the value of variables across a program, one of the great things about immutability.</p>
+<h3 id="recursion-1"><a class="header" href="#recursion-1">Recursion</a></h3>
+<p>So if shadowing is not a solution to our problem of immutability in this Project Euler problem, why mention it now? Well because what if you want to have a recursive function. Let's consider a factorial function defined recursively.</p>
+<pre><code>let fact n =
+    if n = 0 then
+        1
+    else
+        n * fact (n - 1)
+</code></pre>
+<p>In the above snippet, once the recursive call is met, the compiler can't find a definition for the <code>fact</code> function. This is because the top level declaration is not complete, so the compiler doesn't know it's full definition. So why isn't this a problem in other languages? Well because in OCaml we have shadowing. It's perfectly possible for there to be a previous definition of <code>fact</code> that is used in the call within fact.</p>
+<p>So how do we write a recursive function, we just need to notify the compiler that the function will be recursive with the <code>rec</code> keyword. A correct factorial function would look like this:</p>
+<pre><code>let rec fact n =
+    if n = 0 then
+        1
+    else
+        n * fact (n - 1)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="putting-it-all-together"><a class="header" href="#putting-it-all-together">Putting it all Together</a></h2>
+<p>Now we can put all these ideas together into our solution. Here is the question again to remind you:</p>
+<pre><code>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.
+</code></pre>
+<p>The first thing we need to do is have some recursive function that we can run for each of the numbers from 999 to 1 (since the criteria of the question says less than 1000). Let's construct that function, which I will call <code>loop</code>.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        0
+    else
+        loop (index - 1)
+</code></pre>
+<p>Currently if we call <code>loop 999</code> our function will iterate over all the required numbers, doing nothing special and then always returning 0. So let's now update our function to do what we want it to, which is check if index is divisible by 3 or 5 using the <code>mod</code> operator, which, unlike many other languages which use <code>%</code>, is just <code>mod</code> in OCaml.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        (* do something *)
+    else if index mod 3 = 0 || index mod 5 = 0 then
+        (* do something *)
+    else
+        (* do something *)
+</code></pre>
+<p>Here we have three cases. Obviously we need a case for if the number is divisible by 3 or 5, because we need to count the sum of values satisfying that condition. We also need a case for when index is 1, as that is when our recursion will terminate. We then have a case for all the other numbers, let's start by filling out that one.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        (* do something *)
+    else if index mod 3 = 0 || index mod 5 = 0 then
+        (* do something *)
+    else
+        loop (index - 1)
+</code></pre>
+<p>In that case there's nothing special to do, so we just call the <code>loop</code> function on the next number to check.</p>
+<p>Next we can fill out our first case. If the input is provided as 1, the sum of all multiples of 3 or 5 from 1 to 1, is just 0, since 1 isn't divisible by 3 or 5.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        0
+    else if index mod 3 = 0 || index mod 5 = 0 then
+        (* do something *)
+    else
+        loop (index - 1)
+</code></pre>
+<p>Lastly we need to figure out what happens when we have a number divisible by 3 or 5. In that case we still need to call <code>loop</code> on the next number, but we also want to add the index to the result of that call.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        0
+    else if index mod 3 = 0 || index mod 5 = 0 then
+        index + loop (index - 1)
+    else
+        loop (index - 1)
+</code></pre>
+<p>So when this runs the computer will keep adding the required value to the recursive call at each step, until we get to 1, return 0, and then add up all the instances of index added at the time.</p>
+<p>Now let's try calling our <code>loop</code> function with <code>index</code> starting as 999, and displaying the result.</p>
+<pre><code>let rec loop index =
+    if index = 1 then
+        0
+    else if index mod 3 = 0 || index mod 5 = 0 then
+        index + loop (index - 1)
+    else
+        loop (index - 1)
+
+let solution = loop 999
+
+let _ = Printf.printf &quot;%d\n&quot; solution
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grouping-data"><a class="header" href="#grouping-data">Grouping Data</a></h1>
+<p>Very often when programming it is incredibly useful to create custom types from the existing types within the language.</p>
+<p>This section specifically covers what are often referred to as <em>product</em> ypes, where we combine different types together in one type.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="records"><a class="header" href="#records">Records</a></h2>
+<p>Records are a data type for combining other data types together, giving names to each piece of data. This is very similar to structs in C.</p>
+<p>To declare a record, since we are declaring a new type, we use the <code>type</code> keyword. We then provide the names of each field and the data types. Note that OCaml enforces the name of the types and fields do not start with an uppercase letter. Here are some examples of record declarations to show off the syntax, and their potential uses:</p>
+<pre><code>type colour =
+    {
+        red : int;
+        green : int;
+        blue : int;
+    }
+</code></pre>
+<pre><code>type person =
+    {
+        name : string;
+        age : int;
+        height: float;
+    }
+</code></pre>
+<p>To create an instance of a record, we just make sure to provide each of the fields as follows:</p>
+<pre><code>let purple = { red = 128; green = 0; blue = 128; }
+</code></pre>
+<p>Then to access any values from the record, we use dot notation.</p>
+<pre><code>let red_of_purple = purple.red
+</code></pre>
+<p>If we want to create a new record but use most of the fields with an existing record, we can create one from the other.</p>
+<pre><code>let grey = { purple with green = 128; }</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="tuples"><a class="header" href="#tuples">Tuples</a></h2>
+<p>Sometimes we want something a little more lightweight to group our data together. Maybe you have a function where you want to return two variables. In these cases we generally would use tuples.</p>
+<p>One of the great things about tuples is we don't need to write any specific type definition, we can just use them.</p>
+<p>To create a tuple, all we need to do is group multiple variables using parenthesis and separating them by commas. For example:</p>
+<pre><code>let tuple = (4, &quot;hello&quot;)
+</code></pre>
+<p>Here we have created a tuple with 2 values, but tuples can have as many values as you want... well technically the limit is 4194303, but it is even exceptional to create tuples with more than about 5 values.</p>
+<p>So what is the type of our tuple, well the type for the above tuple is written as:</p>
+<pre><code>(int * string)
+</code></pre>
+<p>This is because the type of the two fields are integers. This means that the type of a tuple is dependent on the number of fields, and the types of each field. As such, tuples are not designed to be collections used in the same way a list or array would. Tuples are simply a convenient way of grouping data together, and are most useful as a lightweight way to return multiple values from a function, for example.</p>
+<pre><code>let divide a b =
+    let remainder = a mod b in
+    let quotient = a / b in
+    (quotient, remainder)
+</code></pre>
+<p>This function calculates the quotient and remainder upon division for the two input variables, and returns a tuple accordingly. Let's see an example of calling this function:</p>
+<pre><code>let result = divide 5 2
+</code></pre>
+<p>So how do we get the values out of the tuple? Well we can use pattern matching to deconstruct our tuple as follows:</p>
+<pre><code>let _ = match result with
+    | (quotient, remainder) -&gt;
+        Printf.printf &quot;The quotient is: %d\n&quot; quotient;
+        Printf.printf &quot;The remainder is: %d\n&quot; remainder;
+        ()
+</code></pre>
+<p>In the case within our match expression the identifiers <code>quotient</code> and <code>remainder</code> have the values within the tuple bound to them.</p>
+<p>We can also pattern match in a more compact way since there is only one case as follows:</p>
+<pre><code>let (quotient, remainder) = result
+</code></pre>
+<p>This then shows the simple syntax that we can use from the start to return two variables from a function:</p>
+<pre><code>let (quotient, remainder) = divide 5 2
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linked-list"><a class="header" href="#linked-list">Linked List</a></h1>
+<p>One data structure commonly used in computer programming is a linked list. Notice how we're going to start with a linked list as the first collection to learn about, whereas arrays would often be the first in imperative languages. The reason we aren't starting with arrays, is that the memory allocations required to implement them are fundamentally effectful. We will look at arrays later on, as some data structures can't be efficiently implemented without them, but until then, we will look at some quite creative implementations in a purely functional way.</p>
+<p>Linked lists are very easy to implement in a functional language like OCaml. Let's first outline how they will be different to an imperative linked list and why functional programming languages lend themselves to this data structure nicely.</p>
+<p>First it is important to note that memory allocations are effectful. In OCaml, we don't manually allocate and free memory, there is a garbage collector which handles memory for us.</p>
+<p>We also will not be manipulating lists in place, since our variables are immutable. This means that appending to the front of a list, is the process of creating a new node which points to the old list, and appending to the back of a list can only be done by coping each node all the way down.</p>
+<p>With these ideas in mind, let's implement a functional linked list.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="variants-and-the-list-type"><a class="header" href="#variants-and-the-list-type">Variants and the List Type</a></h2>
+<h3 id="variants-and-pattern-matching"><a class="header" href="#variants-and-pattern-matching">Variants and Pattern Matching</a></h3>
+<p>Now let's create our linked list. The first thing we need is some custom data type that represents the nodes of the list. For this we will use a variant.</p>
+<p>A variant is a custom type which contains a finite number of distinct cases. We can use variants to create types to represent data that enums would often be used for in other languages. Here are some simple examples of variants.</p>
+<pre><code>type boolean =
+    | True
+    | False
+</code></pre>
+<pre><code>type day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+</code></pre>
+<p>When declaring a custom type, we need to use the <code>type</code> keyword. That type is then given a name, which, by convension, we use <em>snake_case</em> for. That said, the fact that the types start with a lowercase letter and the names of the cases start with an uppercase letter is enforced by the language.</p>
+<p>For a variant type, each case is separated by a <code>|</code>, and a <code>|</code> before the first case is optional. When we create an instance of each of these types, it will be of one of the cases. This is because <em>each case is a constructor for the type</em>. Hence to create an instance of the <code>day</code> type from above, we can write the following code:</p>
+<pre><code>let first_day = Monday
+</code></pre>
+<p>If we want to check if a variable of type <code>day</code> is a specific case, we can just check for equality with <code>=</code> and use an if statement.</p>
+<p>There is however a better way of determining the case of a variant, called pattern matching. Pattern matching will be covered more thoroughly in it's own chapter, as it is a very powerful tool available to OCaml programmers. For now though, here is how we can write code for each case in the above variant using a pattern match:</p>
+<pre><code>let string_of_day (input_day : day) : string =
+    match input_day with
+    | Monday -&gt; &quot;monday&quot;
+    | Tuesday -&gt; &quot;tuesday&quot;
+    | Wednesday -&gt; &quot;wednesday&quot;
+    | Thursday -&gt; &quot;thursday&quot;
+    | Friday -&gt; &quot;friday&quot;
+    | Saturday -&gt; &quot;saturday&quot;
+    | Sunday -&gt; &quot;sunday&quot;
+</code></pre>
+<p>The statement <code>match &lt;variable&gt; with</code> is followed by a series of possible cases that the variable may satisfy. Some code follows the arrow which will run if that is the case that is satisfied. All cases in a pattern match must return the same value, just like with an if and an else.</p>
+<p>Variants can also have some data of any type associated with them. For example:</p>
+<pre><code>type colour =
+    | Red
+    | Green
+    | Blue
+    | Cyan
+    | Magenta
+    | Yellow
+    | Custom of int * int * int
+</code></pre>
+<p>This variant represents a colour, as one of a series of different predefined colours. However, it also has a case which allows a custom colour specified by 3 integers as a tuple (benig the RGB values). When constructing an instance of this <code>colour</code> type, we can construct any of the first 6 cases as before, or we can provide a tuple of 3 integers when constructing a <code>colour</code> using the <code>Custom</code> case. This is because <code>Custom</code> is really a function with the signature:</p>
+<pre><code>Custom : (int * int * int) -&gt; colour
+</code></pre>
+<p>So if we want to represent white we can do so with the following code:</p>
+<pre><code>let white = Custom (255, 255, 255)
+</code></pre>
+<p>So how do we pattern match on this? Well we just need to put a variable in place of the tuple here, which will be bound to the value within the <code>Custom</code> case. See below:</p>
+<pre><code>match white with
+| Red -&gt; (* do something *)
+| Green -&gt; (* do something *)
+| Blue -&gt; (* do something *)
+| Cyan -&gt; (* do something *)
+| Magenta -&gt; (* do something *)
+| Yellow -&gt; (* do something *)
+| Custom x -&gt; (* do something with x, which is a variable of type int * int * int *)
+</code></pre>
+<p>As we will see more of later on, pattern matching is even more powerful, in that we can deconstruct the tuple with the pattern match itself, by changing the bottom line to:</p>
+<pre><code>| Custom (r, g, b) -&gt; (* do something with the variables r, g and b *)
+</code></pre>
+<p>We'll look more at pattern matching later with more complex data structures and using wildcards, but the above technique will be sufficient for the code we're about to write to construct and manipulate a linked list.</p>
+<h3 id="list-type"><a class="header" href="#list-type">List Type</a></h3>
+<p>In the case of the type of our list, we are going to use a variant which is recursive. One case for our list is when it is empty, and the other when there is at least one node.</p>
+<pre><code>type 'a linked_list =
+    | Nil
+    | Cons of 'a * 'a linked_list
+</code></pre>
+<p>The names <code>Nil</code> and <code>Cons</code> are very commonly used in functional programming with a linked list. If you come from a background in C, consider the <code>Nil</code> case as being the end of the list, where the pointer to the next node would be <code>null</code>. The Cons case is for all other nodes.</p>
+<p>Note also the use of <code>'a</code> before the name of our type. This is because our type has a <em>type parameter</em>. Every time <code>'a</code> appears in our type definition, it is the same as the type parameter. This allows us to write code that works for lists of any type, since an <code>int linked_list</code> and <code>float linked_list</code> are distinct types that are both linked lists but parameterised on different types.</p>
+<p>Now notice the type of the associated data: <code>'a * 'a linked_list</code>. Here <code>'a</code> is the data stored on the given node of the list, and <code>'a linked_list</code> is another instance of our linked list type, meaning that here we have a <em>recursive type</em>. In many other languages this would not be possible, but in OCaml the layer of abstraction just like a pointer in C, or <code>Box&lt;&gt;</code> in Rust is built in.</p>
+<p>Now that we have our list structure, to better explain how it works let's create a list of the data [7; 9].</p>
+<p>Our list has a starting node of the case <code>Cons</code> with data 7 and a linked list following it which can be represented by [9]. We then construct that list in the same way. This leaves us with a linked list of:</p>
+<pre><code>let list =
+    Cons(7, Cons(9, Nil))
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="general-functions"><a class="header" href="#general-functions">General Functions</a></h2>
+<p>Now that we have a type for a list, and a basic idea of how to use it, let's write some functions to make our list more convenient to use.</p>
+<p>Let's start with the following simple functions to make building lists easier:</p>
+<pre><code>(* To prepend a value to the start of a list *)
+prepend : 'a -&gt; 'a linked_list -&gt; 'a linked_list
+
+(* To join two lists together in sequence *)
+join : 'a list -&gt; 'a linked_list -&gt; 'a linked_list
+
+(* To create a list of a given length, with all values being a specific value *)
+new_list : int -&gt; 'a -&gt; 'a linked_list
+</code></pre>
+<p>Notice again the use of <code>'a</code> as a generic type parameter. This means if our functions doesn't apply any function to the variable of type <code>'a</code> which would restrict its type, our function can also work for any type, giving us a generic linked list implementation.</p>
+<h3 id="prepend"><a class="header" href="#prepend">Prepend</a></h3>
+<p>To prepend a value to a list, we just have to construct a new list from the value to prepend and the provided list, the latter of which will be the tail of the new list. Such an implementation would look like this:</p>
+<pre><code>let prepend (value : 'a) (list : 'a linked_list) : 'a linked_list =
+    Cons (value, list)
+</code></pre>
+<h3 id="join"><a class="header" href="#join">Join</a></h3>
+<p>To join two lists, we are going to deconstruct one list until we get to the end, constructing the new list along the way. This requires us to consider what is happening in each case. Let's pattern match on the first list and consider each of the following cases:</p>
+<ol>
+<li>The first list is <code>Nil</code>. In this case we just return the second list.</li>
+<li>The first list has only one element. In this case we just need to construct a list of this one element, and the second list.</li>
+<li>The first list has more than one element. In this case we just need to create a new list from the first element of the first list, and the rest of the first list joined to the second. We do this with a recursive call.</li>
+</ol>
+<p>Translating the above ideas into our pattern matching code we get the following:</p>
+<pre><code>let rec join first_list second_list =
+    match first_list with
+    | Nil -&gt;
+        second_list
+    | Cons (x, Nil) -&gt;
+        prepend x second_list
+    | Cons (x, xs) -&gt;
+        prepend x (join xs second_list)
+</code></pre>
+<p>If we want, we can also create an infix operator for join to make it more compact.</p>
+<pre><code>let ( @ ) = join
+</code></pre>
+<p>OCaml let's us create all sorts of operators like this, with certain restrictions on what symbols are valid. There are also some nuances to what symbols are and aren't valid and how associativety and precence works which won't be covered here, but is worth looking into if you wish to define many operators to use together.</p>
+<h3 id="new-list"><a class="header" href="#new-list">New List</a></h3>
+<p>To create a new list with all the same values, we just need to examine the cases where we have the length of 0, and the length being greater than 0, since we are just going to recursively construct the rest of the list. So, if the specified length is 0, we just return an empty list. Otherwise, we construct a list with the specified value, and use a recursive call to make the rest of the list.</p>
+<pre><code>let rec new_list length value =
+    if length = 0 then
+        Nil
+    else
+        prepend value (new_list (length - 1) value)
+</code></pre>
+<p>Here we have the obvious problem that negative values give an invalid list. We'll talk about error handling later on, but for now I'm just going to ammend the code so that negative values and 0 give an empty list.</p>
+<pre><code>let rec new_list length value =
+    if length &lt;= 0 then
+        Nil
+    else
+        prepend value (new_list (length - 1) value)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging"><a class="header" href="#debugging">Debugging</a></h1>
+<p>For the following sections, as we work with lists, the outputs of demo code will be shown, but if following along, it would be handy to have a function which displays a list to the terminal for debugging. So let's implement that function first, in this case specifically for lists of integers. We will cover how to implement a similar function generically later on, but for now, let's create a function which displays an integer list as a semi-colon separated list of values.</p>
+<p>For this function, we are going to process the list by pattern matching, displaying the front of the list and recursively calling the display function on the rest of the list.</p>
+<p>The first case for a list which is <code>Nil</code> does not need to display anything, so we can just return unit.</p>
+<p>For the other case, we can call <code>printf</code> to display the current value of the list and a semi-colon separating it from the rest, and then recursively call display on the remaining values in the list.</p>
+<pre><code>let rec display (ls : int linked_list) =
+    match ls with
+    | Nil -&gt; ()
+    | Cons(x, xs) -&gt;
+        Printf.printf &quot;%d; &quot; x;
+        display xs;
+        ()
+</code></pre>
+<p>This function works alright, but it does have the disadvantage that it leaves a trailing semi-colon at the end and doesn't display a new line. To solve this problem we can use some of the powers of pattern matching to pattern match another layer deep, to identify the last element of the list.</p>
+<p>The modified code is as follows:</p>
+<pre><code>let rec display (ls : int linked_list) =
+    match ls with
+    | Nil -&gt; ()
+    | Cons(x, Nil) -&gt;
+        Printf.printf &quot;%d\n&quot; x;
+    | Cons(x, xs) -&gt;
+        Printf.printf &quot;%d; &quot; x;
+        display xs;
+        ()
+</code></pre>
+<p>Notice how now that we have this new case, the code should only reach the first case in the pattern match if it does in the first recursive call, otherwise the end of the list will be identified ahead of time in the second case.</p>
+<p>Finally, it might be useful to group the values in the list so that an empty list is meaningful. To do this, let's rename the above function to <code>display_helper</code>, remove the new line from the end and display some brackets on either side.</p>
+<pre><code>let rec display_helper (ls : int linked_list) =
+    match ls with
+    | Nil -&gt; ()
+    | Cons(x, Nil) -&gt;
+        Printf.printf &quot;%d&quot; x;
+    | Cons(x, xs) -&gt;
+        Printf.printf &quot;%d; &quot; x;
+        display_helper xs;
+        ()
+
+let display (ls : int linked_list) =
+    print_string &quot;[&quot;;
+    display_helper ls;
+    print_string &quot;]\n&quot;;
+    ()
+</code></pre>
+<p>The output of this function will now look something like this:</p>
+<pre><code>[1; 2; 3; 4]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="map"><a class="header" href="#map">Map</a></h2>
+<p>There are other functions that might be handy to have for our list. For example, what about a function to add 1 to each element of an integer list. To do this we are going to destruct the list as we construct a new list with the desired function applied.</p>
+<pre><code>let rec add_one_list int_list =
+    match int_list with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (x + 1) (add_one_list xs)
+</code></pre>
+<p>Or a function to divide each element of an integer list by 2.</p>
+<pre><code>let rec divide_two_list int_list =
+    match int_list with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (x / 2) (divide_two_list xs)
+</code></pre>
+<p>Looks great! But look at the similarity of the above functions though. We're doing a very similar thing in each case in terms of the high level processing of the list. The only difference here is that the function we are applying differs slightly. Therefore, it might be helpful to use this similarity to write a general function that works in both cases, and uses the function that we apply to each element as a parameter. Fortunately, OCaml let's us do this very easily because functions are first class.</p>
+<h3 id="first-class-functions"><a class="header" href="#first-class-functions">First Class Functions</a></h3>
+<p>OCaml functions are first class. This means they have no special status, and aren't treated in any special way. This may have been made clear by the fact that there is no special keyword to define a function, unlike many other languages that have special syntax for a function. You can even think of an ordinary variable as just a function that doesn't take an input. What this means for the purposes of actually writing code, is we can take functions as inputs, and return them as outputs, easily and conveniently, unlike languages like C where you use function points, C# where you use delegates, etc.</p>
+<p>So let's refactor our <code>add_one</code> and <code>divide_two</code> functions to take our mapping function generically.</p>
+<pre><code>let rec ls (f : 'a -&gt; 'b) (ls : 'a linked_list) : 'b linked_list =
+    match map with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (f x) (map f xs)
+</code></pre>
+<p>Notice how the function <code>f</code> returns type <code>'b</code> rather than <code>'a</code>, meaning we get a <code>'b list</code>. This is so that we can use our mapping to change the type of the list if we so choose.</p>
+<p>Now if we want to use the incrementing function from before on a list, we can just use map, and curry the function by providing an anonymous function for our incrementing:</p>
+<pre><code>let add_one x = x + 1
+
+let add_one_list = map add_one
+</code></pre>
+<p>This is also a great time to introduce another feature of OCaml, anonymous functions.</p>
+<h3 id="anonymous-functions"><a class="header" href="#anonymous-functions">Anonymous Functions</a></h3>
+<p>If we have a simple function to pass into map, it may be a lot neater to write the function inline, and not bother assigning it a name in a declaration, especially if we only need it once. To do this we use an anonymous function. Anonymous functions use the <code>fun</code> keyword in their declaration and use an arrow to show what the function returns. For example a function to increment a number would look like this:</p>
+<pre><code>fun x -&gt; x + 1
+</code></pre>
+<p>This allows us to write a function without giving it a name and assigning it to a variable. Just as <code>1</code> is an <code>int</code> literal, or <code>&quot;hello&quot;</code> is a <code>string</code> literal <code>fun x -&gt; x + 1</code> is a function literal, specifically an <code>int -&gt; int</code> literal.</p>
+<p>That said, we can still assign anonymous functions to a variable name in a let declaration, meaning that the following are equivalent:</p>
+<pre><code>let increment = fun x -&gt; x + 1
+</code></pre>
+<pre><code>let increment x = x + 1
+</code></pre>
+<p>Using this with our increment example from before:</p>
+<pre><code>let add_one_list = map (fun x -&gt; x + 1)
+</code></pre>
+<h3 id="tail-recursion"><a class="header" href="#tail-recursion">Tail Recursion</a></h3>
+<p>Our linked list implementation is looking pretty neat. It does however have one issue. Let's try running our map function to increment all values on a list of length 100:</p>
+<pre><code>let test_list = new_list 100 1
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>Great, that works. What if we try an even bigger list?</p>
+<pre><code>let test_list = new_list 999 1
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>Oh oh! We get a stack overflow error. Let's first figure out what this even means.</p>
+<p>Let's think about how the computer actually runs our code, by examining our implementation of <code>map</code> more closely:</p>
+<pre><code>let rec map (f : 'a -&gt; 'b) (ls : 'a linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (f x) (map f xs)
+</code></pre>
+<p>When we first run this function we get the <code>Cons</code> case, and apply <code>f</code> to the first element, before applying <code>map</code> to the rest of the list. This means that the computer needs to store memory <code>f x</code> temporarily until it knows the result of <code>map f xs</code> to return the result. However, when <code>map</code> is run in the recursive call we have the same thing again, for the next element. That means <code>f x</code> is stored for each and every element in the list until it gets to the end and can then return the whole list. This data is stored on the stack, and there's a limit to how much data the stack can hold. The error we got means we overflowed the stack... we stored too much on it.</p>
+<p>So how can we fix it? What we really need to do is avoid the dependency on calculating the result of the recursive call to then do the prepend operation. We need some way to do the prepend before we calculate the result of the recursive call. So how can we do this? What we can do is build the new list as we go by passing it into the next function call, as a variable we will call <code>acc</code> for accumulator.</p>
+<pre><code>let rec map (f : 'a -&gt; 'b) (ls : 'a linked_list) (acc : 'b linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        map f xs (prepend (f x) acc)
+</code></pre>
+<p>This way if we call this new <code>map</code> function with <code>acc</code> starting as an empty list, each time we call the function we append the mapped value to the front of the accumulator, meaning it is passed down into the next function call, and nothing needs to be stored in memory from the above scope.</p>
+<p>There is one minor improvement that we should make to this though. It seems kinda silly to force the user of our function to always pass <code>Nil</code> as the third argument, so let's change the name of our <code>map</code> function and write a wrapper around it which puts that in for us. Such a change would look like this:</p>
+<pre><code>let rec map_helper (f : 'a -&gt; 'b) (ls : 'a linked_list) (acc : 'b linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        map_helper f xs (prepend (f x) acc)
+
+let map f ls = map_helper f ls Nil
+</code></pre>
+<p>Now we can call our <code>map</code> function on a huge list without any problems. There is however one quirk about our new implementation. It doesn't actually behave the same as the original implementation. You might be able to spot how, if not, I encourage you to pause and ponder why for a moment.</p>
+<p>Let's run it and see how it differs. Consider the following code:</p>
+<pre><code>(* The list: [1; 2; 3; 4] *)
+let test_list = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>For which the output is:</p>
+<pre><code>[5; 4; 3; 2]
+</code></pre>
+<p>In the process of applying our mapping our function has reversed the list. This happens because the first value to be prepended to the accumulator is the first value of the list, then we prepend the second element, which makes it closer to the front of the new list. This continues until the last element to prepend to the new list is the last element of the original list, which becomes the first of the new list because the are added to the front.</p>
+<p>This gives us a bit of a compromise. No need to worry about a stack overflow error, but we get a reversed list. Sometimes the order of the list is unimportant, and sometimes the size of the list is small, we just need to make a choice of which to use accordingly. We also might have cases where we use a function that reverses our list an even number of times in sequence, in which case it won't matter.</p>
+<p>But let's be practical, if we need to map some function to a huge list and preserve order, we need some function that's going to reverse our list, so let's write that now.</p>
+<p>Since we've seen a way to tail recursively reverse a list, we just need to do the same thing we did above but without applying any function to each value. This gives us an implementation like this:</p>
+<pre><code>let rec reverse_helper (ls : 'a linked_list) (acc : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        reverse_helper xs (prepend x acc)
+
+let reverse ls = reverse_helper ls Nil
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="filter"><a class="header" href="#filter">Filter</a></h2>
+<p>Another very useful function for working with lists is a function we will call <code>filter</code>. This function similary to map, will demonstrate the usefulness of first class functions. We are going to write <code>filter</code> to have the following signature:</p>
+<pre><code>filter : ('a -&gt; bool) -&gt; 'a linked_list -&gt; 'a linked_list
+</code></pre>
+<p>The idea of this function is that we provide a linked list and a function which takes each element of the linked list and returns a boolean. If the boolean is <code>true</code>, then the examined element is included within the output list, otherwise it is not.</p>
+<p>Let's first start with a simple recursive implementation, which deconstructs the list, and behaves differently depending on if the first element satisfies the function or not.</p>
+<pre><code>let rec filter (f : 'a -&gt; bool) (ls : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt; Nil
+    | Cons(x, xs) -&gt;
+        if f x then
+            prepend x (filter f xs)
+        else
+            filter f xs
+</code></pre>
+<p>Here our base case is simply when the list is empty, in which case no filtering needs to occur, and then if the function evaluates to <code>true</code> on the first element then it gets included within the output list, otherwise we simply make the recursive call without prepending it.</p>
+<p>Let's test out this implementation on a a sample list:</p>
+<pre><code>(* The list: [4; 3; 1; 0] *)
+let test_list = Cons(4, Cons(3, Cons(1, Cons(0))))
+
+let new_list = filter (fun x -&gt; x &gt; 2) test_list
+</code></pre>
+<p>Where the above outputs the list:</p>
+<pre><code>[4; 3]
+</code></pre>
+<p>However you may notice, based on our study of the <code>map</code> function, that on a large enough list, such a function would store too much data on the stack, and thus result in a stack overflow. We can solve this problem in the same way we did with <code>map</code>, with tail recursion. That is, we have a helper function which passes the accumulator down as one of the arguments. Such an implementation would be as follows:</p>
+<pre><code>let rec filter_helper (f : 'a -&gt; bool) (ls : 'a linked_list) (acc : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt; acc
+    | Cons(x, xs) -&gt;
+        if f x then
+            filter_helper f xs (prepend x acc)
+        else
+            filter_helper f xs acc
+
+let filter f ls = filter_helper f ls Nil
+</code></pre>
+<p>We can also use the flexibility of <code>if</code> statements in OCaml to be used inline to optionally rewrite the above as:</p>
+<pre><code>let rec filter_helper (f : 'a -&gt; bool) (ls : 'a linked_list) (acc : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt; acc
+    | Cons(x, xs) -&gt;
+        filter_helper f xs (if f x then prepend x acc else acc)
+
+let filter f ls = filter_helper f ls Nil
+</code></pre>
+<p>Notice how just as happened with the implementation of map, our tail recursive implementation of filter reverses the list. Due to the nature of the function filter, this is less likely to matter but if preservation of order is important, then we can similarly reverse the list as we did in the previous example.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="fold"><a class="header" href="#fold">Fold</a></h2>
+<p>Perhaps the most important function for operating on a linked list is called <code>fold</code>. One of the main reasons for its importance is the fact that many other list functions, including <code>map</code> and <code>filter</code> which we already implemented, can be written in terms of <code>fold</code>.</p>
+<p>The idea of fold is that we have a function which takes as input a given element of the list, and some accumulating value over the list. The signature of <code>fold</code> is as follows:</p>
+<pre><code>fold : ('a -&gt; 'b -&gt; 'b) -&gt; 'b -&gt; ('a linked_list) -&gt; 'b
+</code></pre>
+<p>For this function, the <code>'a</code> given as input to the provided function is each element in the <code>'a linked_list</code>. The <code>'b</code> provided as input is the initial term given to the provided function, for the output to be then fed back in to that function. If this is all a bit confusing, it should make a bit more sense as we write the implementation and do some examples.</p>
+<pre><code>let rec fold (f : 'a -&gt; 'b -&gt; 'b) (acc : 'b) (ls : 'a linked_list) : 'b =
+    match ls with
+    | Nil -&gt; acc
+    | Cons(x, xs) -&gt;
+        fold f (f x acc) xs
+</code></pre>
+<p>Notice how in this implementation we already use constant stack space by default.</p>
+<p>Let's carefully consider the code here, specifically what happens in the <code>Cons(x, xs)</code> case. In this case, <code>fold</code> is recursively called, where the same function is passed down, the rest of the list is passed down, and the new value of <code>acc</code> is the result of the function applied to the start of the list and the current value  of <code>acc</code>.</p>
+<p>To best demonstrate the usefullness of this function let's implement some other list functions which can be easily expressed in terms of <code>fold</code>.</p>
+<h3 id="sum-and-concat"><a class="header" href="#sum-and-concat">Sum and Concat</a></h3>
+<p>Here are functions to sum the values of an <code>int</code> list and concatenate the values of a <code>linked_list</code> respectively (note that the <code>string</code> concatenation operator in OCaml is <code>^</code>).</p>
+<pre><code>let sum (ls : int linked_list) =
+    fold (fun a b -&gt; a + b) 0 ls
+</code></pre>
+<pre><code>let concat (ls : string linked_list) =
+    fold (fun a b -&gt; a ^ b) &quot;&quot; ls
+</code></pre>
+<h3 id="map-1"><a class="header" href="#map-1">Map</a></h3>
+<p>The previously described list function <code>map</code> can be expressed in terms of <code>fold</code>. Notice that this implementation is identical in function to the tail recursive implementation which reverses the list.</p>
+<pre><code>let map (f : 'a -&gt; 'b) (ls : 'a linked_list) : 'b linked_list =
+    fold (fun a b -&gt; prepend (f a) b) Nil ls
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="persistance-of-functional-structures"><a class="header" href="#persistance-of-functional-structures">Persistance of Functional Structures</a></h2>
+<p>One interesting thing you may not have realised about our implementation of a linked list compared to an imperative one is that it is persistent by default.</p>
+<p>Let's understand what this means in the context of some of the list functions and how the nodes are represented in memory.</p>
+<p>Whenever we have made a modification to the list, we have simply taken in the previous list and returned a new list. This is true of functions like map for example which create a completely new set of nodes and do not touch the old list at all. Re-examining our map function from before, we used an empty list as the starting value of <code>acc</code>, and built the last as we mapped down.</p>
+<pre><code>let rec reverse_helper (ls : 'a linked_list) (acc : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        reverse_helper xs (prepend x acc)
+
+let reverse ls = reverse_helper ls Nil
+</code></pre>
+<p>The same is true of the non tail recursive implementation which built the resulting list from the empty list which was returned in the terminating case.</p>
+<p>Some of our list functions did not rebuild the entire list from scratch but still returned a new list. One such example is prepend which simply takes the old list and stores it as the tail of the new list. In this case, the new list points to the old list, and therefore both lists are valid to be used and passed around even though they share many nodes because those nodes cannot be mutated.</p>
+<p>This property of functional linked lists, and as we will say later on many other functional data structures is called persistence. When we make an operation on a list, without doing anything special, both the original list and the new list are valid lists and unchanged. Any operation which attempts to modify a list either copies and creates new nodes or shares data with the original list in a way that is completely safe.</p>
+<p>Implementing a list in such a way in C is very difficult, because sharing references to the same data for multiple lists makes memory cleanup hard. In OCaml we don't have this problem because of garbage collection but other functional languages use a technique called reference counting where the number of references or pointers to any piece of data are counted and when the count hits 0, the memory is freed. Such an implementation is possible in languages which don't do reference counting automatically through the use of smart pointers such as in C++ or Rust. This benefit of functional linked lists comes at a disadvantage though. For example, if maintaining the old list is not crucial, then appending to the end of a list in C can be done without the need to copy all of the nodes, because the final node can be mutated. These tradeoffs make a functional linked list and imperative linked list two slightly different data structures which can be used in different contexts, and is one of the reasons why many newer programming languages offer the flexibility to conveniently work with both. That having been said, the primary goal of this text is to introduce the functional way of doing things, such that these ideas can be applied elsewhere, not just to say that the OCaml ways is better, and one of the problems with OCaml is that implementing a list which can be mutated is significantly more difficult.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="the-built-in-list-type"><a class="header" href="#the-built-in-list-type">The Built in List Type</a></h2>
+<p>We have put all this work into implementing a linked list as it is a useful exercise in learning OCaml, but the standard library actually already has a very similar implementation in it already. From this point on we're going to use the implementation in the standard library, so let's just quickly get familiar with that implementation and how it works. Some parts of it are quite elegant and neat, and others a bit messy.</p>
+<p>The first great thing about the linked list implementation from the standard library is that it has a special status in the language, and therefore we have nice syntax for list literals. This is actually the syntax this text has been using in comments. For example the following is perfectly valid code:</p>
+<pre><code>let test_list = [1; 4; 3; 8]
+</code></pre>
+<p>The other different thing about the standard library implementation is the use of <code>[]</code> to represent the <code>Nil</code> case to be aligned with the literal syntax, and the <code>(::)</code> operator for the <code>Cons</code> case. Hence the type is declared as follows:</p>
+<pre><code>type 'a list =
+    | []
+    | (::) of 'a * 'a list
+</code></pre>
+<p>To show what pattern matching looks like for this, here is our original implementation of <code>map</code> with the new type:</p>
+<pre><code>let rec map (f : 'a -&gt; 'b) (ls : 'a list) : 'b list =
+    match ls with
+    | [] -&gt;
+    | x :: xs -&gt; (f x) :: (map f xs)
+</code></pre>
+<p>The only special thing here is that the case of the variant, which we said was a function that constructs an instance of the type, here is an infix operator. This is why we can use (::) as a prepending operator, and why we can pattern match with the form <code>x :: xs</code>.</p>
+<p>We also have the power to pattern match with list literals, so we could write our <code>join</code> function from before as follows:</p>
+<pre><code>let rec join first_list second_list =
+    match first_list with
+    | [] -&gt;
+        second_list
+    | [x] -&gt;
+        x :: second_list
+    | x :: xs -&gt;
+        x :: (join xs second_list)
+</code></pre>
+<p>More complex techniques with pattern matching to follow.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="pipelining"><a class="header" href="#pipelining">Pipelining</a></h2>
+<p>One of the nicest things about OCaml is that its syntax and style makes well written OCaml programs incredibly easily to quickly read and understand, especially compared to imperative programming languages. One simple idea that contributes to this benefit greatly is the pipelining operator (<code>|&gt;</code>) build into the standard library.</p>
+<p>Even though this operator exists in the standard library, writing an implementation of it ourself is actually incredibly easy.</p>
+<pre><code>let (|&gt;) f g = g f
+</code></pre>
+<p>This operator does one simple thing: reverses function application.</p>
+<p>Here is a very simple example of how this operator can be used with a function of a single input.</p>
+<pre><code>let increment x = x + 1
+
+let number = 5
+
+5 |&gt; increment (* 6 *)
+</code></pre>
+<p>For functions with multiple inputs, normal function application takes predence over this operator. This can be thought of as taking the last input variable to a curried function and putting it before the pipeline operator. Here is a simple example with a function of two variables.</p>
+<pre><code>let divide a b = a / b
+
+let number = 10
+
+let result = 2 |&gt; divide number (* 5 *)
+</code></pre>
+<h3 id="repeated-application-with-lists"><a class="header" href="#repeated-application-with-lists">Repeated Application with Lists</a></h3>
+<p>Many readers may now be wondering why this section on this reversed function application operator is in the chapter on lists. The reason for this is how this operator makes repeated operators on lists significantly easier to read. Here is one example of taking a list of integers, incrementing it, filtering out the elements that are divisible by 2 and summing the result.</p>
+<pre><code>let numbers = [2; 6; 3; 9]
+
+numbers
+|&gt; map (fun x -&gt; x + 1)
+|&gt; filter (fun x -&gt; x % 2)
+|&gt; sum
+</code></pre>
+<p>This now gives some understanding as to why all of the previously implemented list functions take the list as the final input, because each function takes in all the inputs to the right of the function name, and the result is a function which is then applied backwards to whatever was before the <code>|&gt;</code> operator.</p>
+<p>That result is then the input given last to the next function.</p>
+<p>This order of application is a little clearer while learning if the extra set of brackets are included as below:</p>
+<pre><code>let numbers = [2; 6; 3; 9]
+
+numbers
+|&gt; (map (fun x -&gt; x + 1))
+|&gt; (filter (fun x -&gt; x % 2))
+|&gt; (sum)
+</code></pre>
+<p>If the key variable which should be included in the pipelining sequence is not taken as the final curried input to the function, brackets around the pipelining operator could be used to disambiguate.</p>
+<p>The overall design decision around the pipelining operator is that it allows the order that functions are applied to be the same as the order they are applied in code.</p>
+<p>If we write the above code without the pipelining operator it would look like this.</p>
+<pre><code>let numbers = [2; 6; 3; 9]
+
+sum (
+    filter (fun x -&gt; x % 2) (
+        map (fun x -&gt; x + 1) numbers
+    )
+)
+</code></pre>
+<p>Getting used to writing functions in the order they should be applied has the benefit long term of writing significantly more readable code, and is one of the simple yet brilliant ideas from OCaml that has yet to take off in a lot of other programming languages, partially due to the dependency on currying.</p>
+<h3 id="function-composition"><a class="header" href="#function-composition">Function Composition</a></h3>
+<p>As an extension of the above idea, we can define a function application operator as follows:</p>
+<pre><code>let (&gt;&gt;) f g x = g (f x)
+</code></pre>
+<p>This is the definition of the function application operator in F#, a language heavily based on OCaml, and is a useful operator to include in your own code.</p>
+<p>Here is an example of its usage:</p>
+<pre><code>let increment x = x + 1
+let double x = 2 * x
+
+let increment_then_double = increment &gt;&gt; double
+</code></pre>
+<p>This operator allows the building of complexity from composing simple functions together, and is one of the key design philosophies of many functional languages. In many other languages however, such as Haskell, function application is written in the opposite order, as it is in standard mathematical notation.</p>
+<p>This idea of writing functions in the order they are applied makes for significantly more readable code.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<p>Most functional programming languages have a linked list implementation in their standard libraries, OCaml included. There are many functions that are useful for a linked list implementation that we haven't implemented in this section. Below are a bunch of those functions described by what they should do and their type signature. Implementations are left as exercises, and as such test cases are provided in the form of a series of statements which should evaluate to true, and solutions are given at the back of the book. As specified in the previous section, from this point we will use the list type from the standard library, so complete the following exercises using that.</p>
+<pre><code>(* This function should determine if the specified value is in the provided list. *)
+contains : 'a -&gt; 'a list -&gt; bool
+
+(* Test cases:
+true = contains 5 [1; 2; 5; 9]
+false = contains 1 []
+true = contains &quot;hello&quot; [&quot;goodbye&quot;; &quot;hello&quot;]
+*)
+</code></pre>
+<pre><code>(* This function should take as input the length of a desired list and a function from the index of each element in the list to the desired value at that index, and produce such a list. Assume the index starts at 0. *)
+initialise : int -&gt; (int -&gt; 'a) -&gt; 'a list
+
+(* Test cases:
+[1; 2; 3; 4; 5] = initialise 5 (fun x -&gt; x + 1)
+[true; false] = initialise 2 (fun x -&gt; x = 0)
+[0; 2; 4] = initialise 3 (fun x -&gt; x * 2)
+*)
+</code></pre>
+<pre><code>(* Takes two list and returns a list of tuples, pairing values at equivalent indexes together in a tuple. You may assume the two input lists are equal in length. *)
+zip : 'a list -&gt; 'b list -&gt; ('a * 'b) list
+
+(* Test cases:
+[(1, 4); (2, 5); (3, 6)] = zip [1; 2; 3] [4; 5; 6]
+[('a', 'c'); ('b', 'd')] = zip ['a'; 'b'] ['c'; 'd']
+*)
+</code></pre>
+<pre><code>(* Returns a list of tuples of all pairs of adjascent elements, and the first and last element paired together. Check the test cases for specific implementation details. *)
+pairwise : 'a list -&gt; ('a * 'a) list 
+
+(* Test cases:
+[(1, 2); (2, 3); (3, 4); (1, 4)] = pairwise [1; 2; 3; 4]
+[true, false] = pairwise [true; false]
+*)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="option-type"><a class="header" href="#option-type">Option Type</a></h1>
+<p>Now that we have worked with variants, let's explore how they can be used in error handling, to represent cases where functions may not return any meaningful data. For this, the standard library has a type built in called <code>option</code>, with a declaration like this.</p>
+<pre><code>type 'a option =
+    | Some of 'a
+    | None
+</code></pre>
+<p>Let's use this to refactor a simple function which throws an exception:</p>
+<pre><code>let rec find_first (f : 'a -&gt; bool) (ls : 'a list) : 'a =
+    match ls with
+    | x :: xs -&gt;
+        if f x then
+            x
+        else
+            find_first f xs
+    | [] -&gt;
+        failwith &quot;value not found&quot;
+</code></pre>
+<p>This function returns the first value in a list for which the provided function returns true, and throws an exception if no value satisfies the function.</p>
+<p>Throwing an exception here is an easy thing to do, and makes the implementation neat, but it's not really optimal. Catching exceptions slows down code, and by returning an object that could encapsulate the error we can force the user to actually handle the error. This design decision, to force the caller to handle the error produces far less error prone code.</p>
+<p>So let's use this option type and return <code>Some</code> when there's a reasonable result, and <code>None</code> when there isn't.</p>
+<pre><code>let rec find_first (f : 'a -&gt; bool) (ls : 'a list) : 'a option =
+    match ls with
+    | x :: xs -&gt;
+        if f x then
+            Some x
+        else
+            find_first f xs
+    | [] -&gt;
+        None
+</code></pre>
+<p>This way when a caller is using the function they can choose how to handle the error:</p>
+<pre><code>let test_list = [2; 4; -1; 8]
+
+match find_first (fun x -&gt; x &lt; -2) test_list with
+| Some result -&gt;
+    (* handle the success case *)
+| None -&gt;
+    (* handle the error case *)
+</code></pre>
+<p>The great thing about doing this is that it forces the caller to handle the error case. Even if they choose to make it throw an exception, we can write library code that can sensibly return no data without halting the program.</p>
+<p>Now if you want this to be exception throwing, it can help to have some simple syntax to do that, so let's write an unwrap function to do just that.</p>
+<pre><code>let unwrap (opt : 'a option) (message : string) : 'a =
+    match opt with
+    | Some result -&gt; result
+    | None -&gt; failwith message
+</code></pre>
+<p>This is similar to <code>expect</code> if you have ever programmed in Rust.</p>
+<p>In general though, <code>option</code> type is commonly used in cases where <code>null</code> would typically be used in an imperative program. OCaml also has a built in type called <code>result</code> for handling true errors are passing on debugging info, but as you have seen with lists and options, we can implement any of these things ourselves without too much trouble.</p>
+<p>We'll see more cases where returning option type can be useful in the next section.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stacks"><a class="header" href="#stacks">Stacks</a></h1>
+<p>Another useful data structure is a stack. In most cases, a linked list can be used just like a stack by only prepending to the stack, and removing from the front. That said, the implementation of a specifically designed stack can be useful to distinguish the usage in code. The implementation of the standard stack functions also let's us put some features of OCaml in action that we haven't used much up until now.</p>
+<h3 id="structure-and-type"><a class="header" href="#structure-and-type">Structure and Type</a></h3>
+<p>A stack is a data structure where elements that are added first, are the last to be removed. This is just like if you were to stack dishes for example. When adding new dishes they should go at the top of the stack, and when removing them, they should also be removed from the top.</p>
+<p>Let's first construct the type to use for our stack. This will be similar to our linked list.</p>
+<pre><code>type 'a stack =
+    | Empty
+    | Node of 'a * 'a stack
+</code></pre>
+<h3 id="implementing-stack-functions"><a class="header" href="#implementing-stack-functions">Implementing Stack Functions</a></h3>
+<p>Any good stack implementation should implement the following functions:</p>
+<pre><code>(* Returns the first element of the stack *)
+peek: 'a stack -&gt; 'a option
+
+(* Removes the top element of a stack, returning that's elements value and a new stack  *)
+pop: 'a stack -&gt; ('a option * 'a stack)
+
+(* Adds an element to a stack, returning the new stack *)
+push: 'a -&gt; 'a stack -&gt; 'a stack
+</code></pre>
+<p>So let's implement them in order.</p>
+<p>For peeking the top element of a stack, we just need to use pattern matching to deconstruct it and return the top element.</p>
+<pre><code>let peek (st : 'a stack) : 'a stack =
+    match st with
+    | Empty -&gt;
+        None
+    | Node (x, xs) -&gt;
+        Some x
+</code></pre>
+<p>Notice here that because we may attempt to peek an empty stack, we need to handle this case in some way. In many imperative or object oriented language we could return <code>null</code>, or fail the program there, treating it like an index out of bounds error in an array. Ultimately though, the programmer using our implementation should be forced to handle this case, and should be allowed to handle this case without an exception. This is the perfect case to use <code>option</code> type, since it's possible no data will be returned.</p>
+<p>Now, <code>pop</code> is a similar function in the sense that it returns the top element. So let's use that as a basis for our implementation. The only difference now is we also need to return the new stack, comprised of the remaining elements. A tuple is the perfect data type for this.</p>
+<pre><code>let pop (st : 'a stack) : ('a option * 'a stack) =
+    match st with
+    | Empty -&gt;
+        (None, Empty)
+    | Node (x, xs) -&gt;
+        (Some x, xs)
+</code></pre>
+<p>Finally, let's implement the push function. To push to the top of the stack, we need a new stack which &quot;points to&quot; the existing stack. This is just like prepending to a list.</p>
+<pre><code>let push (new : 'a) (st : 'a stack) : ('a stack) =
+    Node (new, st)
+</code></pre>
+<p>Fantastic, we new have an implementation of a stack data structure to peek, pop and push all with time complexity of <em><strong>O(1)</strong></em>, just as we would expect.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="queues"><a class="header" href="#queues">Queues</a></h1>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern Matching</a></h1>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="monads"><a class="header" href="#monads">Monads</a></h1>
+<p>Monads are an idea originally from category theory, which have been adopted in functional programming. In general, the usage of monads in functional programming requires no understanding of the underlying maths, because of how the term means a slightly different thing depending on the context anyway. Furthermore, with no understanding of what a monad is, with enough programming in functional languages one would doubtlessly discover monadic design patterns. Hence this chapter will introduce the idea of a monad with reference to the option monad and the result monad, and simply start with the main problem that it mains to solve.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="option-monad"><a class="header" href="#option-monad">Option Monad</a></h2>
+<p>The underlying type on which the option monad is based is the <code>option</code> type, which we have already seen.</p>
+<pre><code>type 'a option =
+    | Some of 'a
+    | None
+</code></pre>
+<p>In this case, we are going to use option type to handle division by 0 exceptions for integers in a non-exception throwing way. The first sensible thing to do is to implement our division function which divides integers but returns none if the denominator is 0. Here is such an implementation:</p>
+<pre><code>let ( / ) (x : int) (y : int) : int =
+    if y &lt;&gt; 0 then
+        Some (x / y)
+    else
+        None
+</code></pre>
+<p>Fantastic, problem solved right? We can just use this new function instead of the usual division operator. There are however, some issues with this. For example, the following expression is no longer valid.</p>
+<pre><code>5 + 2 / 3
+</code></pre>
+<p>This is because <code>+</code> expects an integer, but <code>2 / 3</code> is an <code>int option</code>.</p>
+<p>One thing we can do to resolve this problem is implement a new version of <code>+</code> which allows inputs of <code>int option</code>. If we do this though, it makes sense to force both inputs to be options, and to reimplement the division operator so that it can also take in options. Let's start with <code>+</code>.</p>
+<p>If either of the inputs to our operator are <code>None</code> then we are going to return <code>None</code>, thus propagating the error. That way, if we divide by 0 at any point, the whole expression becomes <code>None</code> wihtout the need for any intermediary pattern matches.</p>
+<pre><code>let ( + ) (x_opt : int option) (y_opt : int option) : int option =
+    match x_opt with
+    | Some x -&gt;
+        beginmatch y_opt with
+        | Some y -&gt;
+            Some (x + y)
+        | None -&gt; None
+        end
+    | None -&gt; None
+</code></pre>
+<p>And similarly for division:</p>
+<pre><code>let ( / ) (x_opt : int option) (y_opt : int option) : int option =
+    match x_opt with
+    | Some x -&gt;
+        beginmatch y_opt with
+        | Some y -&gt;
+            if y &lt;&gt; 0 then
+                Some (x / y)
+            else
+                None
+        | None -&gt; None
+        end
+    | None -&gt; None
+</code></pre>
+<p>We end up with a lot of repeated boilerplate code though. So let's try and abstract some of it out. To do so we are going to implement a function called <code>bind</code>. This bind function is going to take in a function from an <code>int</code> to an <code>int option</code> and an <code>int option</code> to apply it to. Notice that we can't apply the function directly, we first have to unwrap the <code>int option</code>.</p>
+<pre><code>let bind (x_opt : int option) (f : int -&gt; int option) : int option =
+    match x_opt with
+    | Some x -&gt; f x
+    | None -&gt; None
+</code></pre>
+<p>Notice how if <code>x_opt</code> contains an integer in the <code>Some</code> case then we just apply the function, otherwise we propagate the <code>None</code>. Ultimately this is the kind of behaviour we want with our custom arithmetic operators, propagate the error if something went wrong, apply the provided function if it didn't. Let's implement our new version of <code>+</code> again using <code>bind</code>.</p>
+<pre><code>let ( + ) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; Some (x + y)))
+</code></pre>
+<p>Let's carefully consider what is happening here, because it can get a little confusing.</p>
+<p>Let's first consider the case where both <code>x_opt</code> and <code>y_opt</code> are <code>Some</code> options. <code>bind x_opt (...)</code> is taking the integer associated with <code>x_opt</code> and passing it into the anonymous function. That means <code>x</code> in that function is just an integer. Then the same process occurs, unwrapping <code>y_opt</code> and then adding it to <code>x</code>. Now let's consider what happens if for example <code>x_opt</code> is actually none. Well if <code>bind</code> is called on <code>None</code> the function is ignored and <code>None</code> is returned. This means that if either <code>x_opt</code> or <code>y_opt</code> is <code>None</code>, the function returns <code>None</code>, the exact behaviour we were after.</p>
+<p>Now let's do the same with division.</p>
+<pre><code>let ( / ) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; if y &lt;&gt; 0 then Some (x / y) else None))
+</code></pre>
+<p>This function is almost identical to the version for <code>+</code> except we make sure to check for division by 0 and return <code>None</code> or <code>Some</code> accordingly. There is still a bit of repeated code we can simplify though, by taking the binary operator at the end as a function.</p>
+<pre><code>let bind_binary (operator : int -&gt; int -&gt; int option) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; operator x y))
+</code></pre>
+<p>Then we can write our plus and divide functions to take inputs of <code>int</code>s and return an <code>int option</code>.</p>
+<pre><code>let plus_opt (x : int) (y : int) : int option =
+    Some (x + y)
+</code></pre>
+<pre><code>let divide_opt (x : int) (y : int) : int option =
+    if y &lt;&gt; 0 then
+        Some (x / y)
+    else
+        None
+</code></pre>
+<p>And override the operators by passing these functions into our <code>bind_binary</code> function.</p>
+<pre><code>let ( + ) = bind_binary plus_opt
+let ( / ) = bind_binary divide_opt
+</code></pre>
+<p>Most importantly, we now have arithmetic operators which take in options and return options, and furthermore we have a mechanism to easily implement new operators. We just write a function from <code>int</code>s to an <code>int</code> option, and give it as the first argument to bind_binary. Hence doing the same for subtraction and division:</p>
+<pre><code>let ( - ) = bind_binary (fun x y -&gt; x - y)
+let ( * ) = bind_binary (fun x y -&gt; x * y)
+</code></pre>
+<p>Now going back to our expression from before:</p>
+<pre><code>5 + 2 / 3
+</code></pre>
+<p>This doesn't technically work here, we first need to make sure we are passing in options like this:</p>
+<pre><code>Some 5 + Some 2 / Some 3
+</code></pre>
+<p>Unfortunately, as OCaml doesn't allow us to overload operators, we can't have an implementation to accept integers and one for integer options using the same symbol, but languages that allow this allow expressions to be written with integers or integer options mixed together just like the above. We can of course do this OCaml with seperate operators, but we're going to leave this for now.</p>
+<h3 id="what-does-this-have-to-do-with-monads"><a class="header" href="#what-does-this-have-to-do-with-monads">What does this have to do with Monads?</a></h3>
+<p>Now is the point where we can explain monads, and how we've implemented a monad as above.</p>
+<p>A monad has three important things, a type with a single type parameter, and two functions called <code>bind</code> and <code>return</code>. Here are the signatures:</p>
+<pre><code>type 'a t
+val return : 'a -&gt; 'a t
+val bind : 'a -&gt; ('a -&gt; 'b t) -&gt; 'b
+</code></pre>
+<p>There are also some rules that a monad must follow called the monad laws. I'm not going to cover those thoroughly now, rather that to say it is crucial in the above function's implementations that <code>return</code> doesn't alter the data, it simply wraps it up on a box of type <code>'a t</code>, and that <code>bind</code> simply applies the provided function to its first argument where possible, otherwise it can pass on the data as is.</p>
+<p>In our option monad above, the bind function is one we implemented and called bind. Here it is again:</p>
+<pre><code>let bind (x_opt : int option) (f : int -&gt; int option) : int option =
+    match x_opt with
+    | Some x -&gt; f x
+    | None -&gt; None
+</code></pre>
+<p>Note that in general, bind can have <code>f</code> with a signature <code>'a -&gt; 'b t</code>, but in our case <code>'a</code> and <code>'b</code> are the same type. We would want to make this generic though if we were to use this option monad for types beyond integers.</p>
+<p>So in our case, both <code>'a</code> and <code>'b</code> are <code>int</code>, and <code>t</code> is <code>option</code>.</p>
+<p>As for return, well that is just <code>Some</code>, a function that wraps the input into the box of our type.</p>
+<p>This section gave an explanation for how monads can be used with option type for arithmetic operators, but the definition provided here is quite general, and as you'll see in the next section we can use monads for handling errors in a slightly different way, with the result monad.</p>
+<p>In languages like Haskell, due to the way that functional programming is enforced more strongly than in OCaml, monads are a means through which to handle effectful programming in as safe of a way as possible, and thus are necessary parts of the language, and required for things like IO.</p>
+<p>In OCaml, it is most sensible to view monads as a design pattern, which is useful under certain circumstances such as error handling and promises (which are a way of handling concurrent programs).</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="result-monad"><a class="header" href="#result-monad">Result Monad</a></h2>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="modules-and-multi-file-projects"><a class="header" href="#modules-and-multi-file-projects">Modules and Multi File Projects</a></h2>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="functors"><a class="header" href="#functors">Functors</a></h2>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sets-and-maps"><a class="header" href="#sets-and-maps">Sets and Maps</a></h1>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="red-black-trees"><a class="header" href="#red-black-trees">Red Black Trees</a></h2>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="imperative-programming-in-ocaml"><a class="header" href="#imperative-programming-in-ocaml">Imperative Programming in OCaml</a></h1>
+<p>OCaml is a functional language at its core, but it does not enforce functional programming upon the user. Imperative programming features such as mutable data, loops and if statements are allowed. Morever effectful functions with file IO for example are totally fine. In languages like Haskell which attempt to enforce a certain style upon the programmer these things are very difficult. OCaml discourages but allows them without too much difficulty. This chapter examines some of the imperative programming features of OCaml. While this might seem counter to the goal of this textbook, in teaching functional programming, it is the belief of the author that the best programs come from a place of a functional design where imperative features are used sparingly if necessary. Hence these tools are presented as options when for mutability provides benefits in performance critical scenarios, or conditional IO helps with debugging.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="if-statements"><a class="header" href="#if-statements">If Statements</a></h2>
+<p>We have already covered if expressions, and the fact that an if statement is a function which returns the same type on all branches. But what about in circumstances where your if statement has effectful code in it, performing IO or updating a variable? In these cases we need an if statement. This is the same OCaml construct as an if expression but with one small detail worth mentioning. Let's say you have a variable in a program which should never be negative, and you wish to check that with a debugging statement that gives a warning if it is.</p>
+<p>Up until this point, we have said that all branches must return the same value in an if statement, and functions like those in the print family (<code>print_*</code>) return <code>unit</code>, since they don't need to give back any useful information, so we just need to have an else case that returns <code>unit</code> right?</p>
+<pre><code>if number &lt; 0 then
+    print_string &quot;Warning, number is negative&quot;
+else
+    ()
+</code></pre>
+<p>This is totally valid OCaml code and does exactly what we need it to. We can however actually omit the else case here.</p>
+<pre><code>if number &lt; 0 then
+    print_string &quot;Warning, number is negative&quot;
+</code></pre>
+<p>This else case is implicitly still there. The if statement will return <code>unit</code> if the condition is not satisfied. The OCaml compiler doesn't force us to write it in though. Hence, if statements do not need to have an else case if their return type is <code>unit</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>References are a feature of the OCaml standard library which allow for mutable variables. In this subchapter we are going to re-implement all the code required for working with references.</p>
+<p>The first thing we need to cover is mutable record fields. This is something we didn't cover when first introducing records, but OCaml allows the creation of records with mutable fields. For example, in the following type declaration all three fields can be mutated.</p>
+<pre><code>type colour =
+    {
+        mutable red : int;
+        mutable green : int;
+        mutable blue : int;
+    }
+</code></pre>
+<p>To update the value of a mutable field, we do the following:</p>
+<pre><code>let colour =
+    {
+        red = 50;
+        green = 20;
+        blue = 30;
+    }
+
+colour.red &lt;- 60
+</code></pre>
+<p>So why in a language that encourages immutability is this possible? Well, as usual, this is generally something that should be avoided. However, there are circumstances where small modifications need to be made to a record and copying the data to make the modification for a new instance of the record is expensive. This brings us to a general rule of mutability, which we will see more with arrays: mutability often makes code more subtle, and harder to understand, but sometimes it simply provides better performance, and the trade off must be made.</p>
+<p>So let's see how we can implement the general idea of mutable variables using mutable record fields. For this we are going to use a type which we will call a <code>ref</code>.</p>
+<pre><code>type 'a ref =
+    { mutable contents : 'a }
+</code></pre>
+<p>The <code>ref</code> type has one type parameter and is a record with a single mutable field. If we create an instance of this ref type, with the data we need to mutate in the contents field, we can then change it throughout our program. It is handy to have some functions to make that easier though.</p>
+<p>Let's start with a function also called <code>ref</code> to create a <code>ref</code>.</p>
+<pre><code>let ref a =
+    { contents = a }
+</code></pre>
+<p>Now <code>let number = ref 5</code> for example creates a reference with the value 5 stored inside.</p>
+<p>What if we wish to derefence, we can create an operator for that as well.</p>
+<pre><code>let ( ! ) (cell : 'a ref) =
+    cell.contents
+</code></pre>
+<p>Now using <code>!</code> on a reference will extract the value from inside it.</p>
+<p>Finally, it will be convenient to be able to update a reference without accessing the contents field as well. So let's create an operator which we can use to update our reference:</p>
+<pre><code>let ( := ) (cell : 'a ref) (contents : 'a) =
+    cell.contents &lt;- contents
+</code></pre>
+<p>Now the following valid code can be used to declare a mutable variable, update it, and then display the result:</p>
+<pre><code>let number = ref 5
+number := !number + 1
+
+let _ = Printf.printf &quot;%d\n&quot; (!number)
+(* Outputs 6 *)
+</code></pre>
+<p>Notice how we have created a system of <em>referencing</em> mutable data, not mutating the data itself, which means that mutable variables and non mutable variables have distinct types. This is especially nice as it allows it means the type signature of a function gives away if it can change the value of any variables in the above scope.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="loops"><a class="header" href="#loops">Loops</a></h2>
+<p>Just as any imperative programming language would, OCaml also has loops. If you have come from a background in imperative or object oriented languages, and were new to functional languages with this text, take a moment to appreciate the amount of code we have written without the need for loops. In fact, we are going to continue to write code in that way from this moment forward, as that style is generally prefered.</p>
+<p>That said, as we look at imperative programming features of OCaml, it makes sense to look at loops and mutability together, given how we established how well coupled together they are when looking at the first Project Euler problem.</p>
+<h2 id="for"><a class="header" href="#for">For</a></h2>
+<p>For loops in OCaml are fairly intuitive and straightforward. Here is an example of a <code>for</code> loop.</p>
+<pre><code>for i from 1 to 10 do
+    print_int i
+done
+</code></pre>
+<p>The header of the loop contains a variable which will be iterated over, and a lower and upper bound which are integers. The variable <code>i</code> will take on all variables from <code>1</code> to <code>10</code> <em>inclusive</em>.</p>
+<p>OCaml <code>for</code> loops also have the ability to support an indexing variable which is decreasing, using the <code>downto</code> keyword as follows:</p>
+<pre><code>for i from 10 downto 1 do
+    print_int i
+done
+</code></pre>
+<h2 id="while"><a class="header" href="#while">While</a></h2>
+<p>While loops in OCaml are also very similar to those of other languages, and look like the following:</p>
+<pre><code>while condition do
+    (* something *)
+done
+</code></pre>
+<p>You may notice something interesting about <code>while</code> loops with respect to functional programming, which is that the condition can only ever change to evaluate to <code>false</code> and halt the execution of the loop if what is determining it is mutable. This is why <code>while</code> loops are not generally preferred in OCaml, because they require us to use references so we can mutate the condition, and because the nature of a loop breaking upon a condition at the start yields a very simple recursive equivalent, especially since there is no support in OCaml for <code>break</code> and <code>continue</code>.</p>
+<p>Hence the use case for <code>while</code> loops is very minimal and are mostly avoided, but are presented here for completeness. This is not true of for loops, which can genuinely be very useful to produce more readable code than recursion for nested loops.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="arrays"><a class="header" href="#arrays">Arrays</a></h2>
+<p>This section has not been written yet, check back later on see the Preface at the start of the book to follow the progress.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h1>
+<p>For this chapter, I, the author will just speak directly to you, the reader. This book is designed to introduce and explain how a different tool like OCaml can be used to write programs in this new and different way. It does not however cover all of OCaml's features, or all that you can use them for. I have aimed though to give you the tools required to do learn other functional languages more confidently, to port some of these ideas to your imperative or object oriented code, and to get you to understand the mindset of functional programming so that you can use it for your own projects, even if you don't understand everything you can do in OCaml just yet.</p>
+<h3 id="other-languages"><a class="header" href="#other-languages">Other Languages</a></h3>
+<p>Now that you can program in OCaml and have overcome the initial hurdle of functional programming, there are many other functional programming languages you can learn far more easily. The most noteworthy ones are F# and Standard ML. Standard ML predates OCaml and is very similar in many ways, yet it has somewhat simpler syntax and is defined by a standard rather than a compiler. F# came out after OCaml and is heavily inspired by it, but has since gained more popularity due to it running on the .Net platform and its interoperability with all other .Net languages. F# was the first functional language I learned and the breadth of libraries (including all of those available to C# programmers) make it a great language. The most noteworthy changes between F# and OCaml are operator overloading, header files replaced with a <code>private</code> keyword and summary comments and the ability to do light parametric polymorphism on traits like equality and addition. In all honesty, F# is a more well rounded language, but the fact that it runs on .Net is a dealbreaker for many  who want to produce standalone executables and not have a dependency on a VM. Any other languages you come across that claim to be in the ML family will probably have a lot you recognise from OCaml.</p>
+<p>Then there are other functional languages like Haskell or Agda. Haskell is notorious for being difficult to learn if you don't have a background in functional programming, but your knowledge of OCaml will make it less of a barrier if you now want to tackle it. Some concepts like Monads are crucial to the way that Haskell handles side effects so now that you have implemented them yourself, they shouldn't be too difficult.</p>
+<p>Unfortunately, there is not a lot in the way of systems programming languages in functional languages. The most noteworthy example is Rust, but I'm not really convinced that's a functional language. The great thing about functional programming though is that as it takes off (it's still a bit of a niche) some of the great ideas get ported from it to other languages. For example, Rust has immutability by default and pattern matching (not quite as powerful as F# and OCaml). Another option for low level programming is ATS but it comes with a bit of a warning. ATS is hard! The syntax is confusing, the error messages are confusing, there's not much documentation and the way it uses proofs at the type level gives a lot of powers, but also makes code complicated. Morevoer, the fusion between functional programming ideas and C interop cause for some oddities like curried functions intrinsically leaking memory. Despite all that, ATS has some fantastic ideas, that I hope get ported to other, more mainstream languages over time.</p>
+<h3 id="other-features"><a class="header" href="#other-features">Other Features</a></h3>
+<p>There are some features of OCaml or of the OCaml standard library that we didn't cover in this book. This is because I felt like they detracted from the overall point of what I aimed to teach. That said, here are some that might be interesting to look into if you're curious:</p>
+<ul>
+<li>Catching Exceptions</li>
+<li>Promises</li>
+<li>Lazy evaluation and the 'Lazy' module</li>
+<li>Sequences</li>
+</ul>
+<h3 id="other-data-structures"><a class="header" href="#other-data-structures">Other Data Structures</a></h3>
+<p>If you're interested in more data structures than just the list, stack, queue and map/set I covered in this text, the best book on data structures in functional languages is in my opinion <em>Purely Functional Data Structures</em> by Chris Okasaki. As a matter of fact, we actually used Okasaki's algorithm for inserting nodes into a red black tree.</p>
+<h3 id="other-standard-libraries"><a class="header" href="#other-standard-libraries">Other Standard Libraries</a></h3>
+<p>One commonly noted problem with OCaml is its standard library. Inconsistencies on if it is exception throwing or returns option, as well as some missing core features, leave many programmers looking elsewhere. There are other options for full replacement standard libraries people have come up with, or simple extensions to add missing features. Here are the most noteworthy ones:</p>
+<ul>
+<li><a href="https://github.com/janestreet/core">Core (Jane Street)</a></li>
+<li><a href="https://github.com/ocaml-batteries-team/batteries-included">Batteries Included</a></li>
+<li><a href="https://github.com/c-cube/ocaml-containers">Containers</a></li>
+</ul>
+<p>I have also created my own standard library, which, while not a full replacement of the existing standard library by any means, contains all the things I need to be productive in OCaml. The source code for that is <a href="https://github.com/aaron-jack-manning/ocaml-standard-library">here</a> which I recommend reading if you want to implement your own, as there are some confusing things about what OCaml automatically opens in your files, how to prevent it and what you can't get rid of.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

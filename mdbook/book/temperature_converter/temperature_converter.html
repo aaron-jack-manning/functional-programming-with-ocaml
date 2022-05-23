@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Temperature Converter - Functional Programming with OCaml</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="../introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/side_effects.html">Side Effects</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="../hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="../temperature_converter/temperature_converter.html" class="active">Temperature Converter</a></li><li class="chapter-item expanded "><a href="../project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="../project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="../project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="../grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="../grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="../linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="../linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="../linked_lists/map.html">Map</a></li><li class="chapter-item expanded "><a href="../linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="../linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="../linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="../linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="../linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="../stacks/stacks.html">Stacks</a></li><li class="chapter-item expanded "><a href="../queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="../pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="../monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../monads/option_monad.html">Option Monad</a></li><li class="chapter-item expanded "><a href="../monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="../sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="../arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="../further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/src/temperature_converter/temperature_converter.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="temperature-converter"><a class="header" href="#temperature-converter">Temperature Converter</a></h2>
+<p>As a short program to introduce some more ideas in OCaml and functional programming in general, let's write a simple tool in the command line to convert temperatures from celcius to fahrenheit and vice versa.</p>
+<p>We're going to start with a pretty simple, and somewhat imperative program, and slowly analyse it for how to change it to make it better, and use more of a functional style.</p>
+<p>The first thing we are going to do is implement our conversion functions, which are the core part of the program.</p>
+<p>Here are some simple implementations:</p>
+<pre><code>let fahrenheit_to_celcius x =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit x =
+    (9.0 /. 5.0) *. x + 32.0
+</code></pre>
+<p>A function in ocaml is declared as follows:</p>
+<pre><code>let &lt;name&gt; &lt;arguments&gt; =
+    &lt;body&gt;
+</code></pre>
+<p>Notice how in our functions we didn't ever tell the OCaml compiler that <code>x</code> was a floating point number. This is because OCaml can infer the type for us, without sacrificing static and strong typing. If we want, we can put type annotations on to make it easier to read.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+</code></pre>
+<p>Now let's look at the bodies. As mentioned earlier, in OCaml the last line of a function is its return value. In this case, we only have one line per functions to the function returns whatever the single line expression evaluates to.</p>
+<p>Now there is one other key thing to mention which you may have noticed, being the use of <code>+.</code> instead of <code>+</code>, and similarly for all other operators. This is because of how OCaml handles types and polymorphism. Languages that allow <code>+</code> to work for multiple types either allow this because <code>+</code> has a special status in the language (in OCaml it's just a function like any other), the use of parametric polymorphism (which OCaml does not support) or the use of operator overloading (which OCaml also does not support). If those terms don't make sense to you, think about it this way: in OCaml functions either work for a specific single type, or any type at all. Since <code>+</code> doesn't make sense for all types, addition is implemented differently for each type. The same applies to all other numerical arithmetic operations.</p>
+<p>Now let's write some of the code to handle user input and output the result.</p>
+<p>Consider the following code:</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number = read_line () in
+    
+    if temperature_type = &quot;celcius&quot; then
+        print_float (celcius_to_fahrenheit number)
+    else if temperature_type = &quot;fahrenheit&quot; then
+        print_float (fahrenheit_to_celcius number)
+    else
+        failwith &quot;Invalid temperature type.&quot;
+    ;
+
+    print_string &quot;\n&quot;
+
+let _ = main ()
+</code></pre>
+<p>We're going to go over this line by line to explain what each thing is doing, and then compile and test if it works.</p>
+<p>The first line of the function uses the <code>print_string</code> function from the standard library and displays the string to prompt the user to input a temperature type. Note the semi-colon on the end since this function returns <code>unit</code> which we don't need to store in a variable, so this line is a statement.</p>
+<p>We then declare a variable called <code>temperature_type</code> which is the output of the <code>read_line</code> function from the standard library, which reads a line from the standard input channel. Note the structure of this expression:</p>
+<pre><code>let ... = ... in
+</code></pre>
+<p>The <code>in</code> keyword ends a variable declaration, and specifies the scope in which the variable will exist. In most practical purposes, the keyword <code>in</code> can be thought of as just a line terminator for this type of expression, but you can read such an expression as declaring the variable in the rest of the current scope. We don't need the <code>in</code> keyword when declaring on the top level, but do within a function. Also take note of the fact that the variable is bound when it is created. In OCaml, variables are <em>immutable</em> and cannot be changed after declaration. This means we cannot declare a variable without giving its value, and the language has no notion of null or uninitialised variables.</p>
+<p>We then do the same thing to get the input of the number we're going to convert.</p>
+<p>Then we have an if statement to handle the different cases for which conversion we are doing, with an else case which throws an exception using the function <code>failwith</code>. Again, the trailing semi-colon there is because this if statement does return a value, but we are not using it.</p>
+<p>We then send a new line to the console since <code>print_float</code> does not.</p>
+<p>Let's run our code and see what happens:</p>
+<pre><code>File &quot;main.ml&quot;, line 18, characters 43-49:
+18 |         print_float (celcius_to_fahrenheit number)
+                                                ^^^^^^
+Error: This expression has type string but an expression was expected of type
+         float
+</code></pre>
+<p>It seems like there is an error. This is a type incompatibility error, telling us that <code>number</code> is a string, but the <code>celcius_to_fahrenheit</code> function expects a float. This is because <code>read_line</code> returns a string. We need to convert this first before we use it, so let's do that.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+
+    if temperature_type = &quot;celcius&quot; then
+        print_float (celcius_to_fahrenheit number)
+    else if temperature_type = &quot;fahrenheit&quot; then
+        print_float (fahrenheit_to_celcius number)
+    else
+        failwith &quot;Invalid temperature type.&quot;
+    ;
+
+    print_string &quot;\n&quot;
+
+let _ = main ()
+</code></pre>
+<p>If we compile and run our program now, it should work as expected.</p>
+<h3 id="refactoring"><a class="header" href="#refactoring">Refactoring</a></h3>
+<p>There are many improvements we could make to our program, so let's make those.</p>
+<p>The first thing to change is to neaten up our if statement a bit. In OCaml, an if statement is reall just a function, which returns whatever each branch returns depending on the case. So let's return the converted float from our if statement, and assign it to a variable. That way we can display that variable after the fact. We're also going to use the module <code>Printf</code> in the standard library which has a function called <code>printf</code> for easily displaying our output.</p>
+<pre><code>let fahrenheit_to_celcius (x : float) : float =
+    (5.0 /. 9.0) *. (x -. 32.0)
+
+let celcius_to_fahrenheit (x : float) : float =
+    (9.0 /. 5.0) *. x +. 32.0
+
+let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+    
+
+    let converted_result =
+        if temperature_type = &quot;celcius&quot; then
+            celcius_to_fahrenheit number
+        else if temperature_type = &quot;fahrenheit&quot; then
+            fahrenheit_to_celcius number
+        else
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p><code>printf</code> takes in a format string, which describes what we're going to output. In this case the <code>%f</code> is a for a float, and we then supply that argument after. This is also the first time we have used a function with more than one argument, and as you may expect, we can just put the next argument after the first with a space in between.</p>
+<p>Notice how this code still satisfies type checking, even though <code>failwith</code> is not a float. This is because it is special in that it has polymorphic output, and will satisfy typechecking because the output will be whatever it needs to be given the context.</p>
+<p>So how else can we improve our program? Well there are two noteworthy issues, being that if the input is not a float, <code>float_of_string</code> will throw an exception, and the fact that an exception is thrown if the temperature unit is invalid. While OCaml supports exceptions, they are generally considered bad practice in functional languages for similar reasons as any effectful code. Luckily OCaml provides a way to handle this called the <code>option</code> type. Option type is a type with two cases, and we can use a pattern matching expression to check it. To introduce the idea of pattern matching, we will first refactor our if statement:</p>
+<pre><code>let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =  float_of_string number_string in
+    
+    let converted_result =
+        match temperature_type with
+        | &quot;celcius&quot; -&gt;
+            celcius_to_fahrenheit number
+        | &quot;fahrenheit&quot; -&gt;
+            fahrenheit_to_celcius number
+        | _ -&gt;
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p>This <code>match</code> expression checks the variable used in the match against each of the cases. The wildcard character (<code>_</code>) at the end matches against anything, so it acts as a catch all if the previous cases didn't match. This will look familiar to the <code>_</code> used in the final line to call the <code>main</code> function, because it is basically the same thing, being a pattern matching which only hase one case, the catch all.</p>
+<p>Now let's change the <code>float_of_string</code> function to a function called <code>float_of_string_opt</code> and use a pattern match to deconstruct it. This will look like this:</p>
+<pre><code>let main () =
+    print_string &quot;What temperature type would you like to convert?\n&quot;;
+    let temperature_type = read_line () in
+    
+    print_string &quot;Enter a number of degrees: &quot;;
+    let number_string = read_line () in
+
+    let number =
+        match float_of_string_opt number_string with
+        | Some data -&gt; data
+        | None -&gt;
+            print_string &quot;Invalid numerical input, defaulted to 0.&quot;;
+            0.0
+    in
+    
+    let converted_result =
+        match temperature_type with
+        | &quot;celcius&quot; -&gt;
+            celcius_to_fahrenheit number
+        | &quot;fahrenheit&quot; -&gt;
+            fahrenheit_to_celcius number
+        | _ -&gt;
+            failwith &quot;Invalid temperature type.&quot;
+    in
+
+    Printf.printf &quot;%f\n&quot; converted_result
+
+let _ = main ()
+</code></pre>
+<p><code>option</code> type has two cases, one with data associated and one without. <code>data</code> in the first case is a variable bound to the data stored within that case of the option type. We can then handle this error however we choose. Here a default value is chosen, which probably isn't the most sensible, but we'll cover more sophisticated error handling at a later point.</p>
+<p>Also notice that this default value is written as <code>0.0</code> rather than <code>0</code>. This is no accident. OCaml's type system is quite strict, and <code>0</code> is of type <code>int</code>, not <code>float</code>. This means using <code>0</code> is a type error.</p>
+<p>One thing you also may have noticed is that we have chosen to write the <code>main</code> function underneath the conversion functions. This is not just a stylistic choice. In OCaml, dependencies go down the file, meaning that we cannot call a function called further down. This idea even extends across files, where file order is important. Because of this, OCaml has specific syntax for mutual recursion. This design decision is annoying to many first time OCaml programmers, as it forces you to think about code in a different way. However, it does provide some benefits, forcing you to write clearer code without complex dependencies across files.</p>
+<p>This tour into OCaml hopefully gives you somewhat of an idea of what OCaml's syntax is like, and what to expect. We will now take a deep dive into specific concepts of functional programming in OCaml.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../hello_world/hello_world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../project_euler_1/project_euler_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../hello_world/hello_world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../project_euler_1/project_euler_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

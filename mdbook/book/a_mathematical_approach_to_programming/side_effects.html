@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Side Effects - Functional Programming with OCaml</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="../introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/side_effects.html" class="active">Side Effects</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="../hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="../temperature_converter/temperature_converter.html">Temperature Converter</a></li><li class="chapter-item expanded "><a href="../project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="../project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="../project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="../grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="../grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="../linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="../linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="../linked_lists/map.html">Map</a></li><li class="chapter-item expanded "><a href="../linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="../linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="../linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="../linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="../linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="../stacks/stacks.html">Stacks</a></li><li class="chapter-item expanded "><a href="../queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="../pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="../monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../monads/option_monad.html">Option Monad</a></li><li class="chapter-item expanded "><a href="../monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="../sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="../arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="../further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/src/a_mathematical_approach_to_programming/side_effects.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="side-effects"><a class="header" href="#side-effects">Side Effects</a></h2>
+<p>When writing functions that are <em>pure</em>, we do not modify the inputs, or mutate data elsewhere. This is contrary to imperative and object oriented languages, where mutating state is crucial. So let's deconstruct each of the ideas of pure functions.</p>
+<h3 id="immutability"><a class="header" href="#immutability">Immutability</a></h3>
+<p>When declaring a variable in C, we would write the following:</p>
+<pre><code>int x;
+</code></pre>
+<p>This variable <code>x</code> is then declared, but not initialised. We could initialise in the same step, or do so later, but the point is that <code>x</code> is a <em>variable</em>. We can change its value whenever we want. In functional programming that is not the case.</p>
+<p>If we wish to declare a variable named <code>x</code>, we <em>are required to</em> initialize it at that step, and it is not really a variable, because it is immutable, meaning that it cannot be changed.</p>
+<pre><code>let x = 5
+</code></pre>
+<p>Now <code>x</code> will be equal to 5 for the entire length of our program.</p>
+<p>At first, it is natural to think this would make it difficult to have your program really do anything. This is no reason to fear functional programming. We will see very quickly why this isn't limiting in terms of our capabilities. So what are the benefits though? In general, it makes code easier to read and understand as when you look at a piece of code, you don't have to think through what the order of execution is and how it effects each variables value is at each point. This is also because we don't generally use loops, or complex branches in functional programming. Furthermore, we don't generally write if statements without their else case. An if statement is just a function.</p>
+<h3 id="side-effects-1"><a class="header" href="#side-effects-1">Side Effects</a></h3>
+<p>In an object oriented program it is common to create a class, of which many instances can be created, where they have data and methods associated with them. We can then have a method which is a <em>member of the instance</em> (non static) and modifies the internal data of that type.</p>
+<p>This means we can have a method which takes no inputs and returns no outputs. In a functional programming language the idea of this is nonsensical. This is because we try to write our functions to have no side effects. This means that they will take an input, do some calculators, and return an output, without doing anything else.</p>
+<p>Some examples of side effects are:</p>
+<ul>
+<li>Reading and writing to files</li>
+<li>Displaying text in the console</li>
+<li>Modifying data on the heap (follow by a pointer)</li>
+<li>Making a memory allocation</li>
+</ul>
+<p>Some readers may now be thinking <em>&quot;how on earth do you write a program to do something useful without side effects?</em> This is a very fair point. As we start out, because OCaml is a functional language but doesn't enforce its functional nature upon us, we will simply be very careful about where we use side effects. In languages like Haskell, we use things called monads to manage side effects. Designing programs around monads makes managing side effects very safe, and makes it easier to reason about the program as it becomes more complicated, with the up front cost of some extra thought in design. For now, there is no reason to worry about monads and the notion of managing side effects with them, as in OCaml we can do things like IO simply and easily. We will however cover them later on as a design pattern to improve our code. That said, mutating data is a side effect we will avoid at (almost) all cost.</p>
+<p>It is also crucial at this point to explicitly mention that the whole idea of functional programming is to provide abstractions upon effectful code. Obviously our code has to allocate memory to do something useful, but when writing a functional program, we can simply think about data being passed around between our functions, without significant thinking dedicated to how the program handles it internally. This abstraction does come with disadvantages when it comes to performance analysis, and the ability to do systems programming, we will discuss these further later on.</p>
+<p>All of this is about managing complexity. One of the biggest benefits of pure functions should be clear already. If I call a function, I know that its just doing calculations on the inputs and that's it. I don't have to worry about calling a function on data and not knowing if its going to modify that data I'm giving to it. This is especially important when using a library written by someone else, or returning to your own code you haven't looked at in a while, when you're less familiar with it.</p>
+<p>The key idea here is that <em>pure functions make it easy to reason about complex algorithms, without tracking the state of your program</em>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../a_mathematical_approach_to_programming/currying.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../a_mathematical_approach_to_programming/currying.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

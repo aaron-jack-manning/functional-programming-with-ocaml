@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Map - Functional Programming with OCaml</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="../introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/side_effects.html">Side Effects</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="../hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="../temperature_converter/temperature_converter.html">Temperature Converter</a></li><li class="chapter-item expanded "><a href="../project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="../project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="../project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="../grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="../grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="../linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="../linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="../linked_lists/map.html" class="active">Map</a></li><li class="chapter-item expanded "><a href="../linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="../linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="../linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="../linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="../linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="../stacks/stacks.html">Stacks</a></li><li class="chapter-item expanded "><a href="../queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="../pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="../monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../monads/option_monad.html">Option Monad</a></li><li class="chapter-item expanded "><a href="../monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="../sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="../arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="../further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/src/linked_lists/map.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="map"><a class="header" href="#map">Map</a></h2>
+<p>There are other functions that might be handy to have for our list. For example, what about a function to add 1 to each element of an integer list. To do this we are going to destruct the list as we construct a new list with the desired function applied.</p>
+<pre><code>let rec add_one_list int_list =
+    match int_list with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (x + 1) (add_one_list xs)
+</code></pre>
+<p>Or a function to divide each element of an integer list by 2.</p>
+<pre><code>let rec divide_two_list int_list =
+    match int_list with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (x / 2) (divide_two_list xs)
+</code></pre>
+<p>Looks great! But look at the similarity of the above functions though. We're doing a very similar thing in each case in terms of the high level processing of the list. The only difference here is that the function we are applying differs slightly. Therefore, it might be helpful to use this similarity to write a general function that works in both cases, and uses the function that we apply to each element as a parameter. Fortunately, OCaml let's us do this very easily because functions are first class.</p>
+<h3 id="first-class-functions"><a class="header" href="#first-class-functions">First Class Functions</a></h3>
+<p>OCaml functions are first class. This means they have no special status, and aren't treated in any special way. This may have been made clear by the fact that there is no special keyword to define a function, unlike many other languages that have special syntax for a function. You can even think of an ordinary variable as just a function that doesn't take an input. What this means for the purposes of actually writing code, is we can take functions as inputs, and return them as outputs, easily and conveniently, unlike languages like C where you use function points, C# where you use delegates, etc.</p>
+<p>So let's refactor our <code>add_one</code> and <code>divide_two</code> functions to take our mapping function generically.</p>
+<pre><code>let rec ls (f : 'a -&gt; 'b) (ls : 'a linked_list) : 'b linked_list =
+    match map with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (f x) (map f xs)
+</code></pre>
+<p>Notice how the function <code>f</code> returns type <code>'b</code> rather than <code>'a</code>, meaning we get a <code>'b list</code>. This is so that we can use our mapping to change the type of the list if we so choose.</p>
+<p>Now if we want to use the incrementing function from before on a list, we can just use map, and curry the function by providing an anonymous function for our incrementing:</p>
+<pre><code>let add_one x = x + 1
+
+let add_one_list = map add_one
+</code></pre>
+<p>This is also a great time to introduce another feature of OCaml, anonymous functions.</p>
+<h3 id="anonymous-functions"><a class="header" href="#anonymous-functions">Anonymous Functions</a></h3>
+<p>If we have a simple function to pass into map, it may be a lot neater to write the function inline, and not bother assigning it a name in a declaration, especially if we only need it once. To do this we use an anonymous function. Anonymous functions use the <code>fun</code> keyword in their declaration and use an arrow to show what the function returns. For example a function to increment a number would look like this:</p>
+<pre><code>fun x -&gt; x + 1
+</code></pre>
+<p>This allows us to write a function without giving it a name and assigning it to a variable. Just as <code>1</code> is an <code>int</code> literal, or <code>&quot;hello&quot;</code> is a <code>string</code> literal <code>fun x -&gt; x + 1</code> is a function literal, specifically an <code>int -&gt; int</code> literal.</p>
+<p>That said, we can still assign anonymous functions to a variable name in a let declaration, meaning that the following are equivalent:</p>
+<pre><code>let increment = fun x -&gt; x + 1
+</code></pre>
+<pre><code>let increment x = x + 1
+</code></pre>
+<p>Using this with our increment example from before:</p>
+<pre><code>let add_one_list = map (fun x -&gt; x + 1)
+</code></pre>
+<h3 id="tail-recursion"><a class="header" href="#tail-recursion">Tail Recursion</a></h3>
+<p>Our linked list implementation is looking pretty neat. It does however have one issue. Let's try running our map function to increment all values on a list of length 100:</p>
+<pre><code>let test_list = new_list 100 1
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>Great, that works. What if we try an even bigger list?</p>
+<pre><code>let test_list = new_list 999 1
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>Oh oh! We get a stack overflow error. Let's first figure out what this even means.</p>
+<p>Let's think about how the computer actually runs our code, by examining our implementation of <code>map</code> more closely:</p>
+<pre><code>let rec map (f : 'a -&gt; 'b) (ls : 'a linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        Nil
+    | Cons (x, xs) -&gt;
+        prepend (f x) (map f xs)
+</code></pre>
+<p>When we first run this function we get the <code>Cons</code> case, and apply <code>f</code> to the first element, before applying <code>map</code> to the rest of the list. This means that the computer needs to store memory <code>f x</code> temporarily until it knows the result of <code>map f xs</code> to return the result. However, when <code>map</code> is run in the recursive call we have the same thing again, for the next element. That means <code>f x</code> is stored for each and every element in the list until it gets to the end and can then return the whole list. This data is stored on the stack, and there's a limit to how much data the stack can hold. The error we got means we overflowed the stack... we stored too much on it.</p>
+<p>So how can we fix it? What we really need to do is avoid the dependency on calculating the result of the recursive call to then do the prepend operation. We need some way to do the prepend before we calculate the result of the recursive call. So how can we do this? What we can do is build the new list as we go by passing it into the next function call, as a variable we will call <code>acc</code> for accumulator.</p>
+<pre><code>let rec map (f : 'a -&gt; 'b) (ls : 'a linked_list) (acc : 'b linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        map f xs (prepend (f x) acc)
+</code></pre>
+<p>This way if we call this new <code>map</code> function with <code>acc</code> starting as an empty list, each time we call the function we append the mapped value to the front of the accumulator, meaning it is passed down into the next function call, and nothing needs to be stored in memory from the above scope.</p>
+<p>There is one minor improvement that we should make to this though. It seems kinda silly to force the user of our function to always pass <code>Nil</code> as the third argument, so let's change the name of our <code>map</code> function and write a wrapper around it which puts that in for us. Such a change would look like this:</p>
+<pre><code>let rec map_helper (f : 'a -&gt; 'b) (ls : 'a linked_list) (acc : 'b linked_list) : 'b linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        map_helper f xs (prepend (f x) acc)
+
+let map f ls = map_helper f ls Nil
+</code></pre>
+<p>Now we can call our <code>map</code> function on a huge list without any problems. There is however one quirk about our new implementation. It doesn't actually behave the same as the original implementation. You might be able to spot how, if not, I encourage you to pause and ponder why for a moment.</p>
+<p>Let's run it and see how it differs. Consider the following code:</p>
+<pre><code>(* The list: [1; 2; 3; 4] *)
+let test_list = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
+
+let new_list = map (fun x -&gt; x + 1) test_list
+</code></pre>
+<p>For which the output is:</p>
+<pre><code>[5; 4; 3; 2]
+</code></pre>
+<p>In the process of applying our mapping our function has reversed the list. This happens because the first value to be prepended to the accumulator is the first value of the list, then we prepend the second element, which makes it closer to the front of the new list. This continues until the last element to prepend to the new list is the last element of the original list, which becomes the first of the new list because the are added to the front.</p>
+<p>This gives us a bit of a compromise. No need to worry about a stack overflow error, but we get a reversed list. Sometimes the order of the list is unimportant, and sometimes the size of the list is small, we just need to make a choice of which to use accordingly. We also might have cases where we use a function that reverses our list an even number of times in sequence, in which case it won't matter.</p>
+<p>But let's be practical, if we need to map some function to a huge list and preserve order, we need some function that's going to reverse our list, so let's write that now.</p>
+<p>Since we've seen a way to tail recursively reverse a list, we just need to do the same thing we did above but without applying any function to each value. This gives us an implementation like this:</p>
+<pre><code>let rec reverse_helper (ls : 'a linked_list) (acc : 'a linked_list) : 'a linked_list =
+    match ls with
+    | Nil -&gt;
+        acc
+    | Cons (x, xs) -&gt;
+        reverse_helper xs (prepend x acc)
+
+let reverse ls = reverse_helper ls Nil
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../linked_lists/debugging.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../linked_lists/filter.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../linked_lists/debugging.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../linked_lists/filter.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

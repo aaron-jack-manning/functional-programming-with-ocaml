@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Stacks - Functional Programming with OCaml</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="../introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/side_effects.html">Side Effects</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="../hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="../temperature_converter/temperature_converter.html">Temperature Converter</a></li><li class="chapter-item expanded "><a href="../project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="../project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="../project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="../grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="../grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="../linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="../linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="../linked_lists/map.html">Map</a></li><li class="chapter-item expanded "><a href="../linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="../linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="../linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="../linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="../linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="../stacks/stacks.html" class="active">Stacks</a></li><li class="chapter-item expanded "><a href="../queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="../pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="../monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../monads/option_monad.html">Option Monad</a></li><li class="chapter-item expanded "><a href="../monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="../sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="../arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="../further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/src/stacks/stacks.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="stacks"><a class="header" href="#stacks">Stacks</a></h1>
+<p>Another useful data structure is a stack. In most cases, a linked list can be used just like a stack by only prepending to the stack, and removing from the front. That said, the implementation of a specifically designed stack can be useful to distinguish the usage in code. The implementation of the standard stack functions also let's us put some features of OCaml in action that we haven't used much up until now.</p>
+<h3 id="structure-and-type"><a class="header" href="#structure-and-type">Structure and Type</a></h3>
+<p>A stack is a data structure where elements that are added first, are the last to be removed. This is just like if you were to stack dishes for example. When adding new dishes they should go at the top of the stack, and when removing them, they should also be removed from the top.</p>
+<p>Let's first construct the type to use for our stack. This will be similar to our linked list.</p>
+<pre><code>type 'a stack =
+    | Empty
+    | Node of 'a * 'a stack
+</code></pre>
+<h3 id="implementing-stack-functions"><a class="header" href="#implementing-stack-functions">Implementing Stack Functions</a></h3>
+<p>Any good stack implementation should implement the following functions:</p>
+<pre><code>(* Returns the first element of the stack *)
+peek: 'a stack -&gt; 'a option
+
+(* Removes the top element of a stack, returning that's elements value and a new stack  *)
+pop: 'a stack -&gt; ('a option * 'a stack)
+
+(* Adds an element to a stack, returning the new stack *)
+push: 'a -&gt; 'a stack -&gt; 'a stack
+</code></pre>
+<p>So let's implement them in order.</p>
+<p>For peeking the top element of a stack, we just need to use pattern matching to deconstruct it and return the top element.</p>
+<pre><code>let peek (st : 'a stack) : 'a stack =
+    match st with
+    | Empty -&gt;
+        None
+    | Node (x, xs) -&gt;
+        Some x
+</code></pre>
+<p>Notice here that because we may attempt to peek an empty stack, we need to handle this case in some way. In many imperative or object oriented language we could return <code>null</code>, or fail the program there, treating it like an index out of bounds error in an array. Ultimately though, the programmer using our implementation should be forced to handle this case, and should be allowed to handle this case without an exception. This is the perfect case to use <code>option</code> type, since it's possible no data will be returned.</p>
+<p>Now, <code>pop</code> is a similar function in the sense that it returns the top element. So let's use that as a basis for our implementation. The only difference now is we also need to return the new stack, comprised of the remaining elements. A tuple is the perfect data type for this.</p>
+<pre><code>let pop (st : 'a stack) : ('a option * 'a stack) =
+    match st with
+    | Empty -&gt;
+        (None, Empty)
+    | Node (x, xs) -&gt;
+        (Some x, xs)
+</code></pre>
+<p>Finally, let's implement the push function. To push to the top of the stack, we need a new stack which &quot;points to&quot; the existing stack. This is just like prepending to a list.</p>
+<pre><code>let push (new : 'a) (st : 'a stack) : ('a stack) =
+    Node (new, st)
+</code></pre>
+<p>Fantastic, we new have an implementation of a stack data structure to peek, pop and push all with time complexity of <em><strong>O(1)</strong></em>, just as we would expect.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../option_type/option_type.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../queues/queues.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../option_type/option_type.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../queues/queues.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

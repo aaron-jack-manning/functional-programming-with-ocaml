@@ -1,0 +1,3 @@
+# Monads
+
+Monads are an idea originally from category theory, which have been adopted in functional programming. In general, the usage of monads in functional programming requires no understanding of the underlying maths, because of how the term means a slightly different thing depending on the context anyway. Furthermore, with no understanding of what a monad is, with enough programming in functional languages one would doubtlessly discover monadic design patterns. Hence this chapter will introduce the idea of a monad with reference to the option monad and the result monad, and simply start with the main problem that it mains to solve.

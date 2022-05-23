@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Option Monad - Functional Programming with OCaml</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../preface/preface.html">Preface</a></li><li class="chapter-item expanded "><a href="../introduction/introduction.html">Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/setup.html">Setup</a></li></ol></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/a_mathematical_approach_to_programming.html">A Mathematical Approach to Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/side_effects.html">Side Effects</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/currying.html">Currying</a></li><li class="chapter-item expanded "><a href="../a_mathematical_approach_to_programming/functions_are_data.html">Functions are Data</a></li></ol></li><li class="chapter-item expanded "><a href="../hello_world/hello_world.html">Hello, World!</a></li><li class="chapter-item expanded "><a href="../temperature_converter/temperature_converter.html">Temperature Converter</a></li><li class="chapter-item expanded "><a href="../project_euler_1/project_euler_1.html">Project Euler 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project_euler_1/if_expressions.html">If Expressions</a></li><li class="chapter-item expanded "><a href="../project_euler_1/recursion.html">Recursion</a></li><li class="chapter-item expanded "><a href="../project_euler_1/putting_it_all_together.html">Putting it all Together</a></li></ol></li><li class="chapter-item expanded "><a href="../grouping_data/grouping_data.html">Grouping Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grouping_data/records.html">Records</a></li><li class="chapter-item expanded "><a href="../grouping_data/tuples.html">Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="../linked_lists/linked_lists.html">Linked Lists</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linked_lists/variants_and_the_list_type.html">Variants and the List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/general_functions.html">General Functions</a></li><li class="chapter-item expanded "><a href="../linked_lists/debugging.html">Debugging</a></li><li class="chapter-item expanded "><a href="../linked_lists/map.html">Map</a></li><li class="chapter-item expanded "><a href="../linked_lists/filter.html">Filter</a></li><li class="chapter-item expanded "><a href="../linked_lists/fold.html">Fold</a></li><li class="chapter-item expanded "><a href="../linked_lists/persistence_of_functional_structures.html">Persistence of Functional Structures</a></li><li class="chapter-item expanded "><a href="../linked_lists/the_built_in_list_type.html">The Built in List Type</a></li><li class="chapter-item expanded "><a href="../linked_lists/pipelining.html">Pipelining</a></li><li class="chapter-item expanded "><a href="../linked_lists/exercises.html">Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../option_type/option_type.html">Option Type</a></li><li class="chapter-item expanded "><a href="../stacks/stacks.html">Stacks</a></li><li class="chapter-item expanded "><a href="../queues/queues.html">Queues</a></li><li class="chapter-item expanded "><a href="../pattern_matching/pattern_matching.html">Pattern Matching</a></li><li class="chapter-item expanded "><a href="../monads/monads.html">Monads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../monads/option_monad.html" class="active">Option Monad</a></li><li class="chapter-item expanded "><a href="../monads/result_monad.html">Result Monad</a></li></ol></li><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/modules_and_multi_file_projects.html">Modules and Multi File Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../modules_and_multi_file_projects/functors.html">Functors</a></li></ol></li><li class="chapter-item expanded "><a href="../sets_and_maps/sets_and_maps.html">Sets and Maps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sets_and_maps/red_black_trees.html">Red Black Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/imperative_programming_in_ocaml.html">Imperative Programming in OCaml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/if_statements.html">If Statements</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/references.html">References</a></li><li class="chapter-item expanded "><a href="../imperative_programming_in_ocaml/loops.html">Loops</a></li></ol></li><li class="chapter-item expanded "><a href="../arrays/arrays.html">Arrays</a></li><li class="chapter-item expanded "><a href="../further_reading/further_reading.html">Further Reading</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Functional Programming with OCaml</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-code-fark"></i>
+                        </a>
+                        <a href="https://github.com/aaron-jack-manning/functional-programming-with-ocaml/edit/master/guide/src/monads/option_monad.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="option-monad"><a class="header" href="#option-monad">Option Monad</a></h2>
+<p>The underlying type on which the option monad is based is the <code>option</code> type, which we have already seen.</p>
+<pre><code>type 'a option =
+    | Some of 'a
+    | None
+</code></pre>
+<p>In this case, we are going to use option type to handle division by 0 exceptions for integers in a non-exception throwing way. The first sensible thing to do is to implement our division function which divides integers but returns none if the denominator is 0. Here is such an implementation:</p>
+<pre><code>let ( / ) (x : int) (y : int) : int =
+    if y &lt;&gt; 0 then
+        Some (x / y)
+    else
+        None
+</code></pre>
+<p>Fantastic, problem solved right? We can just use this new function instead of the usual division operator. There are however, some issues with this. For example, the following expression is no longer valid.</p>
+<pre><code>5 + 2 / 3
+</code></pre>
+<p>This is because <code>+</code> expects an integer, but <code>2 / 3</code> is an <code>int option</code>.</p>
+<p>One thing we can do to resolve this problem is implement a new version of <code>+</code> which allows inputs of <code>int option</code>. If we do this though, it makes sense to force both inputs to be options, and to reimplement the division operator so that it can also take in options. Let's start with <code>+</code>.</p>
+<p>If either of the inputs to our operator are <code>None</code> then we are going to return <code>None</code>, thus propagating the error. That way, if we divide by 0 at any point, the whole expression becomes <code>None</code> wihtout the need for any intermediary pattern matches.</p>
+<pre><code>let ( + ) (x_opt : int option) (y_opt : int option) : int option =
+    match x_opt with
+    | Some x -&gt;
+        beginmatch y_opt with
+        | Some y -&gt;
+            Some (x + y)
+        | None -&gt; None
+        end
+    | None -&gt; None
+</code></pre>
+<p>And similarly for division:</p>
+<pre><code>let ( / ) (x_opt : int option) (y_opt : int option) : int option =
+    match x_opt with
+    | Some x -&gt;
+        beginmatch y_opt with
+        | Some y -&gt;
+            if y &lt;&gt; 0 then
+                Some (x / y)
+            else
+                None
+        | None -&gt; None
+        end
+    | None -&gt; None
+</code></pre>
+<p>We end up with a lot of repeated boilerplate code though. So let's try and abstract some of it out. To do so we are going to implement a function called <code>bind</code>. This bind function is going to take in a function from an <code>int</code> to an <code>int option</code> and an <code>int option</code> to apply it to. Notice that we can't apply the function directly, we first have to unwrap the <code>int option</code>.</p>
+<pre><code>let bind (x_opt : int option) (f : int -&gt; int option) : int option =
+    match x_opt with
+    | Some x -&gt; f x
+    | None -&gt; None
+</code></pre>
+<p>Notice how if <code>x_opt</code> contains an integer in the <code>Some</code> case then we just apply the function, otherwise we propagate the <code>None</code>. Ultimately this is the kind of behaviour we want with our custom arithmetic operators, propagate the error if something went wrong, apply the provided function if it didn't. Let's implement our new version of <code>+</code> again using <code>bind</code>.</p>
+<pre><code>let ( + ) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; Some (x + y)))
+</code></pre>
+<p>Let's carefully consider what is happening here, because it can get a little confusing.</p>
+<p>Let's first consider the case where both <code>x_opt</code> and <code>y_opt</code> are <code>Some</code> options. <code>bind x_opt (...)</code> is taking the integer associated with <code>x_opt</code> and passing it into the anonymous function. That means <code>x</code> in that function is just an integer. Then the same process occurs, unwrapping <code>y_opt</code> and then adding it to <code>x</code>. Now let's consider what happens if for example <code>x_opt</code> is actually none. Well if <code>bind</code> is called on <code>None</code> the function is ignored and <code>None</code> is returned. This means that if either <code>x_opt</code> or <code>y_opt</code> is <code>None</code>, the function returns <code>None</code>, the exact behaviour we were after.</p>
+<p>Now let's do the same with division.</p>
+<pre><code>let ( / ) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; if y &lt;&gt; 0 then Some (x / y) else None))
+</code></pre>
+<p>This function is almost identical to the version for <code>+</code> except we make sure to check for division by 0 and return <code>None</code> or <code>Some</code> accordingly. There is still a bit of repeated code we can simplify though, by taking the binary operator at the end as a function.</p>
+<pre><code>let bind_binary (operator : int -&gt; int -&gt; int option) (x_opt : int option) (y_opt : int option) : int option =
+    bind x_opt (fun x -&gt; bind y_opt (fun y -&gt; operator x y))
+</code></pre>
+<p>Then we can write our plus and divide functions to take inputs of <code>int</code>s and return an <code>int option</code>.</p>
+<pre><code>let plus_opt (x : int) (y : int) : int option =
+    Some (x + y)
+</code></pre>
+<pre><code>let divide_opt (x : int) (y : int) : int option =
+    if y &lt;&gt; 0 then
+        Some (x / y)
+    else
+        None
+</code></pre>
+<p>And override the operators by passing these functions into our <code>bind_binary</code> function.</p>
+<pre><code>let ( + ) = bind_binary plus_opt
+let ( / ) = bind_binary divide_opt
+</code></pre>
+<p>Most importantly, we now have arithmetic operators which take in options and return options, and furthermore we have a mechanism to easily implement new operators. We just write a function from <code>int</code>s to an <code>int</code> option, and give it as the first argument to bind_binary. Hence doing the same for subtraction and division:</p>
+<pre><code>let ( - ) = bind_binary (fun x y -&gt; x - y)
+let ( * ) = bind_binary (fun x y -&gt; x * y)
+</code></pre>
+<p>Now going back to our expression from before:</p>
+<pre><code>5 + 2 / 3
+</code></pre>
+<p>This doesn't technically work here, we first need to make sure we are passing in options like this:</p>
+<pre><code>Some 5 + Some 2 / Some 3
+</code></pre>
+<p>Unfortunately, as OCaml doesn't allow us to overload operators, we can't have an implementation to accept integers and one for integer options using the same symbol, but languages that allow this allow expressions to be written with integers or integer options mixed together just like the above. We can of course do this OCaml with seperate operators, but we're going to leave this for now.</p>
+<h3 id="what-does-this-have-to-do-with-monads"><a class="header" href="#what-does-this-have-to-do-with-monads">What does this have to do with Monads?</a></h3>
+<p>Now is the point where we can explain monads, and how we've implemented a monad as above.</p>
+<p>A monad has three important things, a type with a single type parameter, and two functions called <code>bind</code> and <code>return</code>. Here are the signatures:</p>
+<pre><code>type 'a t
+val return : 'a -&gt; 'a t
+val bind : 'a -&gt; ('a -&gt; 'b t) -&gt; 'b
+</code></pre>
+<p>There are also some rules that a monad must follow called the monad laws. I'm not going to cover those thoroughly now, rather that to say it is crucial in the above function's implementations that <code>return</code> doesn't alter the data, it simply wraps it up on a box of type <code>'a t</code>, and that <code>bind</code> simply applies the provided function to its first argument where possible, otherwise it can pass on the data as is.</p>
+<p>In our option monad above, the bind function is one we implemented and called bind. Here it is again:</p>
+<pre><code>let bind (x_opt : int option) (f : int -&gt; int option) : int option =
+    match x_opt with
+    | Some x -&gt; f x
+    | None -&gt; None
+</code></pre>
+<p>Note that in general, bind can have <code>f</code> with a signature <code>'a -&gt; 'b t</code>, but in our case <code>'a</code> and <code>'b</code> are the same type. We would want to make this generic though if we were to use this option monad for types beyond integers.</p>
+<p>So in our case, both <code>'a</code> and <code>'b</code> are <code>int</code>, and <code>t</code> is <code>option</code>.</p>
+<p>As for return, well that is just <code>Some</code>, a function that wraps the input into the box of our type.</p>
+<p>This section gave an explanation for how monads can be used with option type for arithmetic operators, but the definition provided here is quite general, and as you'll see in the next section we can use monads for handling errors in a slightly different way, with the result monad.</p>
+<p>In languages like Haskell, due to the way that functional programming is enforced more strongly than in OCaml, monads are a means through which to handle effectful programming in as safe of a way as possible, and thus are necessary parts of the language, and required for things like IO.</p>
+<p>In OCaml, it is most sensible to view monads as a design pattern, which is useful under certain circumstances such as error handling and promises (which are a way of handling concurrent programs).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../monads/monads.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../monads/result_monad.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../monads/monads.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../monads/result_monad.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
